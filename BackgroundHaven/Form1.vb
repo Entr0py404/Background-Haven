@@ -756,7 +756,7 @@ Public Class Form1
         e.Graphics.FillRectangle(bgBrush, e.Bounds)
 
         ' Draw the tooltip text
-        e.Graphics.DrawString(e.ToolTipText, font, textBrush, e.Bounds.X + 4, e.Bounds.Y + 2)
+        e.Graphics.DrawString(e.ToolTipText, font, textBrush, e.Bounds.X + 10, e.Bounds.Y + 2)
 
         ' Dispose of brushes
         bgBrush.Dispose()
