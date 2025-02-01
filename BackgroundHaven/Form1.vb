@@ -812,6 +812,9 @@ Public Class Form1
                 Case "fill"
                     regKey.SetValue("WallpaperStyle", "10")
                     regKey.SetValue("TileWallpaper", "0")
+                Case "span"
+                    regKey.SetValue("WallpaperStyle", "22")
+                    regKey.SetValue("TileWallpaper", "0")
                 Case Else
                     Throw New ArgumentException("Invalid wallpaper style. Use: tiled, centered, stretched, fit, fill.")
             End Select
@@ -851,6 +854,11 @@ Public Class Form1
     ' ToolStripMenuItem_StyleFill - Click
     Private Sub ToolStripMenuItem_StyleFill_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleFill.Click
         SetWallpaperStyle("fill")
+    End Sub
+
+    ' ToolStripMenuItem_Span - Click
+    Private Sub ToolStripMenuItem_Span_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_Span.Click
+        SetWallpaperStyle("span")
     End Sub
 
     ' ToolStripMenuItem_NoColor - Click
