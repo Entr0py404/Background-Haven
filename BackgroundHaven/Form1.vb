@@ -72,7 +72,7 @@ Public Class Form1
             PictureBox_Downloaded.Height = 24
             PictureBox_Downloaded.SizeMode = PictureBoxSizeMode.CenterImage
             PictureBox_Downloaded.Name = "PictureBox_Downloaded" & i.ToString()
-            PictureBox_Downloaded.Image = My.Resources.Steve_Zondicons_Checkmark_Outline_48
+            PictureBox_Downloaded.Image = My.Resources.SteveZondicons_Checkmark_Outline
             PictureBox_Downloaded.BackColor = Color.Orange
             Panel_Wallpaper.Controls.Add(PictureBox_Downloaded)
 
@@ -108,7 +108,7 @@ Public Class Form1
 
             ' Button - Button_Download
             Dim Button_Download = New MyButton
-            Button_Download.Image = My.Resources.Steve_Zondicons_Arrow_Thick_Down_48
+            Button_Download.Image = My.Resources.SteveZondicons_Arrow_Down_Thick
             Button_Download.BackColor = Color.MediumSeaGreen
             Button_Download.Dock = DockStyle.Left
             Button_Download.FlatStyle = FlatStyle.Flat
@@ -592,10 +592,10 @@ Public Class Form1
     Private Sub Button_SortingOrder_Click(sender As Object, e As EventArgs) Handles Button_SortingOrder.Click
         If Descending_sorting_order = True Then
             Descending_sorting_order = False
-            Button_SortingOrder.Image = My.Resources.Steve_Zondicons_Arrow_Up_48
+            Button_SortingOrder.Image = My.Resources.SteveZondicons_Arrow_Up
         Else
             Descending_sorting_order = True
-            Button_SortingOrder.Image = My.Resources.Steve_Zondicons_Arrow_Down_48
+            Button_SortingOrder.Image = My.Resources.SteveZondicons_Arrow_Down
         End If
     End Sub
 

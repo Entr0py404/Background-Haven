@@ -115,9 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -135,16 +135,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
-    <None Include="Resources\Steve_Zondicons_Computer_Desktop.48.png" />
+    <None Include="Resources\SteveZondicons_Computer_Desktop.png" />
     <None Include="Resources\Loading.gif" />
-    <None Include="Resources\Steve_Zondicons_Arrow_Thick_Down.48.png" />
-    <None Include="Resources\Steve_Zondicons_Checkmark_Outline.48.png" />
-    <None Include="Resources\Steve_Zondicons_Refresh.48.png" />
-    <None Include="Resources\Steve_Zondicons_Folder.48.png" />
-    <None Include="Resources\Steve_Zondicons_Cheveron_Right.48.png" />
-    <None Include="Resources\Steve_Zondicons_Cheveron_Left.48.png" />
-    <None Include="Resources\Steve_Zondicons_Arrow_Up.48.png" />
-    <None Include="Resources\Steve_Zondicons_Arrow_Down.48.png" />
+    <None Include="Resources\SteveZondicons_Arrow_Down_Thick.png" />
+    <None Include="Resources\SteveZondicons_Checkmark_Outline.png" />
+    <None Include="Resources\SteveZondicons_Refresh.png" />
+    <None Include="Resources\SteveZondicons_Folder.png" />
+    <None Include="Resources\SteveZondicons_Cheveron_Right.png" />
+    <None Include="Resources\SteveZondicons_Cheveron_Left.png" />
+    <None Include="Resources\SteveZondicons_Arrow_Up.png" />
+    <None Include="Resources\SteveZondicons_Arrow_Down.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -73,9 +73,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Arrow_Down_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Arrow_Down() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Arrow_Down.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Arrow_Down", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -83,9 +83,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Arrow_Thick_Down_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Arrow_Down_Thick() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Arrow_Thick_Down.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Arrow_Down_Thick", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -93,9 +93,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Arrow_Up_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Arrow_Up() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Arrow_Up.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Arrow_Up", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -103,9 +103,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Checkmark_Outline_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Checkmark_Outline() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Checkmark_Outline.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Checkmark_Outline", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -113,9 +113,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Cheveron_Left_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Cheveron_Left() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Cheveron_Left.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Cheveron_Left", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -123,9 +123,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Cheveron_Right_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Cheveron_Right() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Cheveron_Right.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Cheveron_Right", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -133,9 +133,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Computer_Desktop_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Computer_Desktop() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Computer_Desktop.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Computer_Desktop", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -143,9 +143,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Folder_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Folder() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Folder.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Folder", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -153,9 +153,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property Steve_Zondicons_Refresh_48() As System.Drawing.Bitmap
+        Friend ReadOnly Property SteveZondicons_Refresh() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("Steve_Zondicons_Refresh.48", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("SteveZondicons_Refresh", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

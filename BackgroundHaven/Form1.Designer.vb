@@ -403,7 +403,7 @@ Partial Class Form1
         Me.Button_WallpaperStyles.FlatAppearance.BorderSize = 0
         Me.Button_WallpaperStyles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_WallpaperStyles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_WallpaperStyles.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Computer_Desktop_48
+        Me.Button_WallpaperStyles.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Computer_Desktop
         Me.Button_WallpaperStyles.Location = New System.Drawing.Point(51, 12)
         Me.Button_WallpaperStyles.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Button_WallpaperStyles.Name = "Button_WallpaperStyles"
@@ -550,7 +550,7 @@ Partial Class Form1
         Me.Button_SortingOrder.FlatAppearance.BorderSize = 0
         Me.Button_SortingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_SortingOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_SortingOrder.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Arrow_Down_48
+        Me.Button_SortingOrder.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Arrow_Down
         Me.Button_SortingOrder.Location = New System.Drawing.Point(436, 12)
         Me.Button_SortingOrder.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Button_SortingOrder.Name = "Button_SortingOrder"
@@ -565,7 +565,7 @@ Partial Class Form1
         Me.Button_DownloadDirectory.FlatAppearance.BorderSize = 0
         Me.Button_DownloadDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_DownloadDirectory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_DownloadDirectory.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Folder_48
+        Me.Button_DownloadDirectory.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Folder
         Me.Button_DownloadDirectory.Location = New System.Drawing.Point(15, 12)
         Me.Button_DownloadDirectory.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Button_DownloadDirectory.Name = "Button_DownloadDirectory"
@@ -617,7 +617,7 @@ Partial Class Form1
         Me.Button_Search.FlatAppearance.BorderSize = 0
         Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Search.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Refresh_48
+        Me.Button_Search.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Refresh
         Me.Button_Search.Location = New System.Drawing.Point(282, 12)
         Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Button_Search.Name = "Button_Search"
@@ -670,7 +670,7 @@ Partial Class Form1
         Me.Button_Next.FlatAppearance.BorderSize = 0
         Me.Button_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Next.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Next.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Cheveron_Right_48
+        Me.Button_Next.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Cheveron_Right
         Me.Button_Next.Location = New System.Drawing.Point(116, 0)
         Me.Button_Next.Name = "Button_Next"
         Me.Button_Next.Size = New System.Drawing.Size(24, 48)
@@ -684,7 +684,7 @@ Partial Class Form1
         Me.Button_Prev.FlatAppearance.BorderSize = 0
         Me.Button_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Prev.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Prev.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Cheveron_Left_48
+        Me.Button_Prev.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Cheveron_Left
         Me.Button_Prev.Location = New System.Drawing.Point(0, 0)
         Me.Button_Prev.Name = "Button_Prev"
         Me.Button_Prev.Size = New System.Drawing.Size(24, 48)
