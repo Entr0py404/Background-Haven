@@ -449,31 +449,16 @@ Public Class Form1
         ' Base API URL with static parameters
         Dim apiUrl As String = "https://wallhaven.cc/api/v1/search?"
 
-        ' Add sorting based on ComboBox_Sorting selection
-        Dim sorting As String = ComboBox_Sorting.SelectedItem?.ToString().ToLower() ' Get the selected sorting value
-        If Not String.IsNullOrWhiteSpace(sorting) Then
-            If sorting = "date added" Then
-                sorting = "date_added"
-            End If
-            apiUrl &= $"sorting={Uri.EscapeDataString(sorting)}&"
+        ' Add query if provided
+        If Not String.IsNullOrWhiteSpace(query) Then
+            apiUrl &= $"q={Uri.EscapeDataString(query)}&"
         End If
 
+        ' categories & purity
         If CheckBox_Anime.Checked Then
             apiUrl &= "categories=110&purity=100&"
         Else
             apiUrl &= "categories=100&purity=100&"
-        End If
-
-        ' Add AI art filter if CheckBox_AIArt is checked
-        If CheckBox_AIArt.Checked Then
-            apiUrl &= "ai_art_filter=0&"
-        Else
-            apiUrl &= "ai_art_filter=1&"
-        End If
-
-        ' Add query if provided
-        If Not String.IsNullOrWhiteSpace(query) Then
-            apiUrl &= $"q={Uri.EscapeDataString(query)}&"
         End If
 
         ' Add resolutions if provided
@@ -492,7 +477,16 @@ Public Class Form1
             End If
         End If
 
-        'order=asc
+        ' sorting
+        Dim sorting As String = ComboBox_Sorting.SelectedItem?.ToString().ToLower() ' Get the selected sorting value
+        If Not String.IsNullOrWhiteSpace(sorting) Then
+            If sorting = "date added" Then
+                sorting = "date_added"
+            End If
+            apiUrl &= $"sorting={Uri.EscapeDataString(sorting)}&"
+        End If
+
+        ' order
         If Descending_sorting_order = True Then
             apiUrl &= "order=desc&"
         Else
@@ -500,9 +494,15 @@ Public Class Form1
         End If
 
         ' Add colors if provided
-        'If Not String.IsNullOrWhiteSpace(colors) Then
         If Not Label_SelectedColor.Text = "No Color" Then
             apiUrl &= $"colors={Label_SelectedColor.Text.Substring(1)}&"
+        End If
+
+        ' ai_art_filter
+        If CheckBox_AIArt.Checked Then
+            apiUrl &= "ai_art_filter=0&"
+        Else
+            apiUrl &= "ai_art_filter=1&"
         End If
 
         ' Add page if provided
