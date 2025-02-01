@@ -281,6 +281,7 @@ Public Class Form1
                 ' Ensure the sender is a MyPictureBox
                 Dim pb As MyPictureBox = TryCast(sender, MyPictureBox)
                 If pb IsNot Nothing AndAlso Not String.IsNullOrEmpty(pb.wallhaven_path) Then
+
                     If pb.wallhaven_downloaded = True Then
                         Dim result As Boolean = SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, pb.wallhaven_path, SPIF_UPDATEINIFILE Or SPIF_SENDCHANGE)
 
@@ -291,6 +292,11 @@ Public Class Form1
                             Console.WriteLine("Failed to set wallpaper.")
                         End If
                     Else
+                        Dim ownerPanel As Panel = DirectCast(pb.Parent, Panel)
+                        Dim PictureBox_Downloaded As MyPictureBox = DirectCast(pb.Parent.Controls(0), MyPictureBox)
+                        PictureBox_Downloaded.Image = My.Resources.SteveZondicons_Time
+                        PictureBox_Downloaded.Visible = True
+
                         ' Create an HttpClient to download the image from wallhaven_path
                         Using client As New HttpClient()
                             ' Download the image bytes
@@ -315,6 +321,10 @@ Public Class Form1
                                 Console.WriteLine("Failed to set wallpaper.")
                             End If
                         End Using
+
+                        PictureBox_Downloaded.Visible = False
+                        PictureBox_Downloaded.Image = My.Resources.SteveZondicons_Checkmark_Outline
+
                     End If
 
                     If Me.WindowState = FormWindowState.Maximized Then
@@ -349,6 +359,9 @@ Public Class Form1
             Dim ownerPanelBottom As Panel = DirectCast(control.Parent, Panel)
             Dim ownerPanelMain As Panel = CType(ownerPanelBottom.Parent, Panel)
 
+            DirectCast(ownerPanelMain.Controls(0), MyPictureBox).Visible = True
+            DirectCast(ownerPanelMain.Controls(0), MyPictureBox).Image = My.Resources.SteveZondicons_Time
+
             Using client As New HttpClient()
                 ' Download the image bytes
                 Dim imageBytes As Byte() = Await client.GetByteArrayAsync(fileurl)
@@ -365,7 +378,7 @@ Public Class Form1
 
             DirectCast(ownerPanelMain.Controls(1), MyPictureBox).wallhaven_path = Path.Combine(FolderBrowserDialog_DownloadDirectory.SelectedPath, filename)
             DirectCast(ownerPanelMain.Controls(1), MyPictureBox).wallhaven_downloaded = True
-            DirectCast(ownerPanelMain.Controls(0), MyPictureBox).Visible = True
+            DirectCast(ownerPanelMain.Controls(0), MyPictureBox).Image = My.Resources.SteveZondicons_Checkmark_Outline
             DirectCast(sender, MyButton).Visible = False
         Else
             MessageBox.Show("Unable to find the Owner Panel.")
@@ -779,6 +792,36 @@ Public Class Form1
     Private Sub Button_DownloadDirectory_MouseClick(sender As Object, e As MouseEventArgs) Handles Button_DownloadDirectory.MouseClick
         If e.Button = MouseButtons.Left Then
             ContextMenuStrip_ODD.Show(Button_DownloadDirectory, e.Location)
+        End If
+    End Sub
+
+    ' TextBox_CustomResolutionWidth - KeyDown
+    Private Sub TextBox_CustomResolutionWidth_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox_CustomResolutionWidth.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ' Prevent the "ding" sound on Enter key press
+            e.SuppressKeyPress = True
+            FlowLayoutPanel1.Select()
+
+            If Not String.IsNullOrWhiteSpace(TextBox_CustomResolutionWidth.Text) AndAlso Not String.IsNullOrWhiteSpace(TextBox_CustomResolutionHeight.Text) Then
+                Button_Search.PerformClick()
+            ElseIf String.IsNullOrWhiteSpace(TextBox_CustomResolutionHeight.Text) Then
+                TextBox_CustomResolutionHeight.Select()
+            End If
+        End If
+    End Sub
+
+    ' TextBox_CustomResolutionHeight - KeyDown
+    Private Sub TextBox_CustomResolutionHeight_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox_CustomResolutionHeight.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ' Prevent the "ding" sound on Enter key press
+            e.SuppressKeyPress = True
+            FlowLayoutPanel1.Select()
+
+            If Not String.IsNullOrWhiteSpace(TextBox_CustomResolutionHeight.Text) AndAlso Not String.IsNullOrWhiteSpace(TextBox_CustomResolutionWidth.Text) Then
+                Button_Search.PerformClick()
+            ElseIf String.IsNullOrWhiteSpace(TextBox_CustomResolutionWidth.Text) Then
+                TextBox_CustomResolutionWidth.Select()
+            End If
         End If
     End Sub
 

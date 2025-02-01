@@ -60,13 +60,12 @@ Partial Class Form1
         Me.ComboBox_Sorting = New System.Windows.Forms.ComboBox()
         Me.CheckBox_AIArt = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button_WallpaperStyles = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_WallpaperStyles = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem_StyleFill = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleFit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleStretch = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_StyleTile = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_StyleCenter = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem_StyleStretch = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem_StyleFit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem_StyleFill = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_Span = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckBox_Anime = New System.Windows.Forms.CheckBox()
         Me.TextBox_CustomResolutionHeight = New System.Windows.Forms.TextBox()
@@ -75,23 +74,24 @@ Partial Class Form1
         Me.Label_Exactly = New System.Windows.Forms.Label()
         Me.ComboBox_Resolution = New System.Windows.Forms.ComboBox()
         Me.ComboBox_Ratio = New System.Windows.Forms.ComboBox()
-        Me.Button_SortingOrder = New System.Windows.Forms.Button()
-        Me.Button_DownloadDirectory = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_ODD = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem_SetDownloadDirectory = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_OpenDownloadDirectory = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label_Color = New System.Windows.Forms.Label()
         Me.Label_SelectedColor = New System.Windows.Forms.Label()
-        Me.Button_Search = New System.Windows.Forms.Button()
         Me.Panel_Pages = New System.Windows.Forms.Panel()
         Me.Label_Pages = New System.Windows.Forms.Label()
         Me.NumericUpDown_Page = New System.Windows.Forms.NumericUpDown()
-        Me.Button_Next = New System.Windows.Forms.Button()
-        Me.Button_Prev = New System.Windows.Forms.Button()
         Me.FolderBrowserDialog_DownloadDirectory = New System.Windows.Forms.FolderBrowserDialog()
         Me.Timer_FadeIn = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_FadeOut = New System.Windows.Forms.Timer(Me.components)
+        Me.Button_WallpaperStyles = New System.Windows.Forms.Button()
+        Me.Button_SortingOrder = New System.Windows.Forms.Button()
+        Me.Button_DownloadDirectory = New System.Windows.Forms.Button()
+        Me.Button_Search = New System.Windows.Forms.Button()
+        Me.Button_Next = New System.Windows.Forms.Button()
+        Me.Button_Prev = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_Colors.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.ContextMenuStrip_WallpaperStyles.SuspendLayout()
@@ -398,21 +398,6 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(1312, 48)
         Me.Panel1.TabIndex = 5
         '
-        'Button_WallpaperStyles
-        '
-        Me.Button_WallpaperStyles.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_WallpaperStyles.ContextMenuStrip = Me.ContextMenuStrip_WallpaperStyles
-        Me.Button_WallpaperStyles.FlatAppearance.BorderSize = 0
-        Me.Button_WallpaperStyles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_WallpaperStyles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_WallpaperStyles.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Computer_Desktop
-        Me.Button_WallpaperStyles.Location = New System.Drawing.Point(51, 12)
-        Me.Button_WallpaperStyles.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_WallpaperStyles.Name = "Button_WallpaperStyles"
-        Me.Button_WallpaperStyles.Size = New System.Drawing.Size(24, 24)
-        Me.Button_WallpaperStyles.TabIndex = 20
-        Me.Button_WallpaperStyles.UseVisualStyleBackColor = False
-        '
         'ContextMenuStrip_WallpaperStyles
         '
         Me.ContextMenuStrip_WallpaperStyles.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
@@ -421,6 +406,27 @@ Partial Class Form1
         Me.ContextMenuStrip_WallpaperStyles.Name = "ContextMenuStrip2"
         Me.ContextMenuStrip_WallpaperStyles.ShowImageMargin = False
         Me.ContextMenuStrip_WallpaperStyles.Size = New System.Drawing.Size(100, 148)
+        '
+        'ToolStripMenuItem_StyleFill
+        '
+        Me.ToolStripMenuItem_StyleFill.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleFill.Name = "ToolStripMenuItem_StyleFill"
+        Me.ToolStripMenuItem_StyleFill.Size = New System.Drawing.Size(99, 24)
+        Me.ToolStripMenuItem_StyleFill.Text = "Fill"
+        '
+        'ToolStripMenuItem_StyleFit
+        '
+        Me.ToolStripMenuItem_StyleFit.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleFit.Name = "ToolStripMenuItem_StyleFit"
+        Me.ToolStripMenuItem_StyleFit.Size = New System.Drawing.Size(99, 24)
+        Me.ToolStripMenuItem_StyleFit.Text = "Fit"
+        '
+        'ToolStripMenuItem_StyleStretch
+        '
+        Me.ToolStripMenuItem_StyleStretch.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleStretch.Name = "ToolStripMenuItem_StyleStretch"
+        Me.ToolStripMenuItem_StyleStretch.Size = New System.Drawing.Size(99, 24)
+        Me.ToolStripMenuItem_StyleStretch.Text = "Stretch"
         '
         'ToolStripMenuItem_StyleTile
         '
@@ -435,27 +441,6 @@ Partial Class Form1
         Me.ToolStripMenuItem_StyleCenter.Name = "ToolStripMenuItem_StyleCenter"
         Me.ToolStripMenuItem_StyleCenter.Size = New System.Drawing.Size(99, 24)
         Me.ToolStripMenuItem_StyleCenter.Text = "Center"
-        '
-        'ToolStripMenuItem_StyleStretch
-        '
-        Me.ToolStripMenuItem_StyleStretch.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ToolStripMenuItem_StyleStretch.Name = "ToolStripMenuItem_StyleStretch"
-        Me.ToolStripMenuItem_StyleStretch.Size = New System.Drawing.Size(99, 24)
-        Me.ToolStripMenuItem_StyleStretch.Text = "Stretch"
-        '
-        'ToolStripMenuItem_StyleFit
-        '
-        Me.ToolStripMenuItem_StyleFit.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ToolStripMenuItem_StyleFit.Name = "ToolStripMenuItem_StyleFit"
-        Me.ToolStripMenuItem_StyleFit.Size = New System.Drawing.Size(99, 24)
-        Me.ToolStripMenuItem_StyleFit.Text = "Fit"
-        '
-        'ToolStripMenuItem_StyleFill
-        '
-        Me.ToolStripMenuItem_StyleFill.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ToolStripMenuItem_StyleFill.Name = "ToolStripMenuItem_StyleFill"
-        Me.ToolStripMenuItem_StyleFill.Size = New System.Drawing.Size(99, 24)
-        Me.ToolStripMenuItem_StyleFill.Text = "Fill"
         '
         'ToolStripMenuItem_Span
         '
@@ -553,35 +538,6 @@ Partial Class Form1
         Me.ComboBox_Ratio.Size = New System.Drawing.Size(80, 26)
         Me.ComboBox_Ratio.TabIndex = 13
         '
-        'Button_SortingOrder
-        '
-        Me.Button_SortingOrder.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_SortingOrder.FlatAppearance.BorderSize = 0
-        Me.Button_SortingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_SortingOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_SortingOrder.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Arrow_Down
-        Me.Button_SortingOrder.Location = New System.Drawing.Point(436, 12)
-        Me.Button_SortingOrder.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_SortingOrder.Name = "Button_SortingOrder"
-        Me.Button_SortingOrder.Size = New System.Drawing.Size(24, 24)
-        Me.Button_SortingOrder.TabIndex = 12
-        Me.Button_SortingOrder.UseVisualStyleBackColor = False
-        '
-        'Button_DownloadDirectory
-        '
-        Me.Button_DownloadDirectory.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_DownloadDirectory.ContextMenuStrip = Me.ContextMenuStrip_ODD
-        Me.Button_DownloadDirectory.FlatAppearance.BorderSize = 0
-        Me.Button_DownloadDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_DownloadDirectory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_DownloadDirectory.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Folder
-        Me.Button_DownloadDirectory.Location = New System.Drawing.Point(15, 12)
-        Me.Button_DownloadDirectory.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_DownloadDirectory.Name = "Button_DownloadDirectory"
-        Me.Button_DownloadDirectory.Size = New System.Drawing.Size(24, 24)
-        Me.Button_DownloadDirectory.TabIndex = 11
-        Me.Button_DownloadDirectory.UseVisualStyleBackColor = False
-        '
         'ContextMenuStrip_ODD
         '
         Me.ContextMenuStrip_ODD.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
@@ -627,20 +583,6 @@ Partial Class Form1
         Me.Label_SelectedColor.TabIndex = 9
         Me.Label_SelectedColor.Text = "No Color"
         '
-        'Button_Search
-        '
-        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.Button_Search.FlatAppearance.BorderSize = 0
-        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Search.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Refresh
-        Me.Button_Search.Location = New System.Drawing.Point(282, 12)
-        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_Search.Name = "Button_Search"
-        Me.Button_Search.Size = New System.Drawing.Size(24, 24)
-        Me.Button_Search.TabIndex = 7
-        Me.Button_Search.UseVisualStyleBackColor = False
-        '
         'Panel_Pages
         '
         Me.Panel_Pages.Controls.Add(Me.Label_Pages)
@@ -679,6 +621,81 @@ Partial Class Form1
         Me.NumericUpDown_Page.Value = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown_Page.Visible = False
         '
+        'FolderBrowserDialog_DownloadDirectory
+        '
+        Me.FolderBrowserDialog_DownloadDirectory.Description = "Select a download directory for BackgroundHaven"
+        Me.FolderBrowserDialog_DownloadDirectory.ShowNewFolderButton = False
+        '
+        'Timer_FadeIn
+        '
+        Me.Timer_FadeIn.Interval = 20
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.OwnerDraw = True
+        '
+        'Timer_FadeOut
+        '
+        Me.Timer_FadeOut.Interval = 20
+        '
+        'Button_WallpaperStyles
+        '
+        Me.Button_WallpaperStyles.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_WallpaperStyles.ContextMenuStrip = Me.ContextMenuStrip_WallpaperStyles
+        Me.Button_WallpaperStyles.FlatAppearance.BorderSize = 0
+        Me.Button_WallpaperStyles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_WallpaperStyles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_WallpaperStyles.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Computer_Desktop
+        Me.Button_WallpaperStyles.Location = New System.Drawing.Point(51, 12)
+        Me.Button_WallpaperStyles.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_WallpaperStyles.Name = "Button_WallpaperStyles"
+        Me.Button_WallpaperStyles.Size = New System.Drawing.Size(24, 24)
+        Me.Button_WallpaperStyles.TabIndex = 20
+        Me.Button_WallpaperStyles.UseVisualStyleBackColor = False
+        '
+        'Button_SortingOrder
+        '
+        Me.Button_SortingOrder.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_SortingOrder.FlatAppearance.BorderSize = 0
+        Me.Button_SortingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_SortingOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_SortingOrder.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Arrow_Down
+        Me.Button_SortingOrder.Location = New System.Drawing.Point(436, 12)
+        Me.Button_SortingOrder.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_SortingOrder.Name = "Button_SortingOrder"
+        Me.Button_SortingOrder.Size = New System.Drawing.Size(24, 24)
+        Me.Button_SortingOrder.TabIndex = 12
+        Me.Button_SortingOrder.UseVisualStyleBackColor = False
+        '
+        'Button_DownloadDirectory
+        '
+        Me.Button_DownloadDirectory.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_DownloadDirectory.ContextMenuStrip = Me.ContextMenuStrip_ODD
+        Me.Button_DownloadDirectory.FlatAppearance.BorderSize = 0
+        Me.Button_DownloadDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_DownloadDirectory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_DownloadDirectory.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Folder
+        Me.Button_DownloadDirectory.Location = New System.Drawing.Point(15, 12)
+        Me.Button_DownloadDirectory.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_DownloadDirectory.Name = "Button_DownloadDirectory"
+        Me.Button_DownloadDirectory.Size = New System.Drawing.Size(24, 24)
+        Me.Button_DownloadDirectory.TabIndex = 11
+        Me.Button_DownloadDirectory.UseVisualStyleBackColor = False
+        '
+        'Button_Search
+        '
+        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Button_Search.FlatAppearance.BorderSize = 0
+        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Search.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Refresh
+        Me.Button_Search.Location = New System.Drawing.Point(282, 12)
+        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_Search.Name = "Button_Search"
+        Me.Button_Search.Size = New System.Drawing.Size(24, 24)
+        Me.Button_Search.TabIndex = 7
+        Me.Button_Search.UseVisualStyleBackColor = False
+        '
         'Button_Next
         '
         Me.Button_Next.BackColor = System.Drawing.Color.DodgerBlue
@@ -706,23 +723,6 @@ Partial Class Form1
         Me.Button_Prev.Size = New System.Drawing.Size(24, 48)
         Me.Button_Prev.TabIndex = 5
         Me.Button_Prev.UseVisualStyleBackColor = False
-        '
-        'FolderBrowserDialog_DownloadDirectory
-        '
-        Me.FolderBrowserDialog_DownloadDirectory.Description = "Select a download directory for BackgroundHaven"
-        Me.FolderBrowserDialog_DownloadDirectory.ShowNewFolderButton = False
-        '
-        'Timer_FadeIn
-        '
-        Me.Timer_FadeIn.Interval = 20
-        '
-        'ToolTip1
-        '
-        Me.ToolTip1.OwnerDraw = True
-        '
-        'Timer_FadeOut
-        '
-        Me.Timer_FadeOut.Interval = 20
         '
         'Form1
         '

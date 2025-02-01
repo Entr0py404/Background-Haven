@@ -121,31 +121,34 @@
   <data name="Loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SteveZondicons_Folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SteveZondicons_Folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SteveZondicons_Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SteveZondicons_Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SteveZondicons_Cheveron_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SteveZondicons_Cheveron_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SteveZondicons_Cheveron_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SteveZondicons_Cheveron_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SteveZondicons_Arrow_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SteveZondicons_Arrow_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="SteveZondicons_Checkmark_Outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SteveZondicons_Checkmark_Outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SteveZondicons_Arrow_Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SteveZondicons_Arrow_Down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SteveZondicons_Arrow_Down_Thick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SteveZondicons_Arrow_Down_Thick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SteveZondicons_Arrow_Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SteveZondicons_Arrow_Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SteveZondicons_Folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SteveZondicons_Folder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SteveZondicons_Computer_Desktop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SteveZondicons_Computer_Desktop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SteveZondicons_Refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SteveZondicons_Refresh.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SteveZondicons_Cheveron_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SteveZondicons_Cheveron_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SteveZondicons_Cheveron_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SteveZondicons_Cheveron_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SteveZondicons_Arrow_Down" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SteveZondicons_Arrow_Down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SteveZondicons_Time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SteveZondicons_Time.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

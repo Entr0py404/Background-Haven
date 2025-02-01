@@ -135,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <None Include="Resources\SteveZondicons_Time.png" />
     <None Include="Resources\SteveZondicons_Computer_Desktop.png" />
     <None Include="Resources\Loading.gif" />
     <None Include="Resources\SteveZondicons_Arrow_Down_Thick.png" />
