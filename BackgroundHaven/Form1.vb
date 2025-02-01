@@ -2,6 +2,7 @@
 Imports System.Net.Http
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports Microsoft.Win32
 Imports Newtonsoft.Json
 
 Public Class Form1
@@ -24,16 +25,17 @@ Public Class Form1
 
     ' Form1 - Load
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ContextMenuStrip1.Renderer = New ToolStripProfessionalRenderer(New ColorTable())
-        ContextMenuStrip2.Renderer = New ToolStripProfessionalRenderer(New ColorTable())
+        ContextMenuStrip_Colors.Renderer = New ToolStripProfessionalRenderer(New ColorTable())
+        ContextMenuStrip_ODD.Renderer = New ToolStripProfessionalRenderer(New ColorTable())
+        ContextMenuStrip_WallpaperStyles.Renderer = New ToolStripProfessionalRenderer(New ColorTable())
 
         If Directory.Exists(My.Settings.DownloadDir) Then
-            FolderBrowserDialog1.SelectedPath = My.Settings.DownloadDir
+            FolderBrowserDialog_DownloadDirectory.SelectedPath = My.Settings.DownloadDir
         Else
             If Not Directory.Exists(Application.StartupPath + "\Backgrounds") Then
                 Directory.CreateDirectory(Application.StartupPath + "\Backgrounds")
             End If
-            FolderBrowserDialog1.SelectedPath = Application.StartupPath + "\Backgrounds"
+            FolderBrowserDialog_DownloadDirectory.SelectedPath = Application.StartupPath + "\Backgrounds"
             My.Settings.DownloadDir = Application.StartupPath + "\Backgrounds"
         End If
 
@@ -189,13 +191,21 @@ Public Class Form1
                     Next
 
 
+                    If Not Directory.Exists(FolderBrowserDialog_DownloadDirectory.SelectedPath) Then
+                        If Not Directory.Exists(Application.StartupPath + "\Backgrounds") Then
+                            Directory.CreateDirectory(Application.StartupPath + "\Backgrounds")
+                        End If
+                        FolderBrowserDialog_DownloadDirectory.SelectedPath = Application.StartupPath + "\Backgrounds"
+                        My.Settings.DownloadDir = Application.StartupPath + "\Backgrounds"
+                    End If
+
                     ' Dictionary to store file names and their full paths
                     Dim FilesToCheck As New Dictionary(Of String, String)
 
                     ' Get all matching file paths
-                    Dim filePaths = Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.png", SearchOption.AllDirectories).ToList()
-                    filePaths.AddRange(Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.jpg", SearchOption.AllDirectories))
-                    filePaths.AddRange(Directory.GetFiles(FolderBrowserDialog1.SelectedPath, "*.jpeg", SearchOption.AllDirectories))
+                    Dim filePaths = Directory.GetFiles(FolderBrowserDialog_DownloadDirectory.SelectedPath, "*.png", SearchOption.AllDirectories).ToList()
+                    filePaths.AddRange(Directory.GetFiles(FolderBrowserDialog_DownloadDirectory.SelectedPath, "*.jpg", SearchOption.AllDirectories))
+                    filePaths.AddRange(Directory.GetFiles(FolderBrowserDialog_DownloadDirectory.SelectedPath, "*.jpeg", SearchOption.AllDirectories))
 
                     ' Store file names as keys and full paths as values
                     For Each filePath In filePaths
@@ -240,9 +250,6 @@ Public Class Form1
                             PictureBox_Wallpaper.wallhaven_path = wallpaper.path
                         End If
 
-
-                        'Panel_Wallpaper.Controls(2).Controls(1).Tag = wallpaper.path
-
                         Panel_Wallpaper.Visible = True  ' Ensure the used Panel is visible
                     Next
 
@@ -259,9 +266,17 @@ Public Class Form1
 
     ' PictureBox_Wallpaper - MouseClick
     Private Async Sub PictureBox_Wallpaper_MouseClick(sender As Object, e As MouseEventArgs)
-        Console.WriteLine("PictureBox1_MouseClick")
         If e.Button = MouseButtons.Left Then
             Try
+
+                If Not Directory.Exists(FolderBrowserDialog_DownloadDirectory.SelectedPath) Then
+                    If Not Directory.Exists(Application.StartupPath + "\Backgrounds") Then
+                        Directory.CreateDirectory(Application.StartupPath + "\Backgrounds")
+                    End If
+                    FolderBrowserDialog_DownloadDirectory.SelectedPath = Application.StartupPath + "\Backgrounds"
+                    My.Settings.DownloadDir = Application.StartupPath + "\Backgrounds"
+                End If
+
                 ' Ensure the sender is a MyPictureBox
                 Dim pb As MyPictureBox = TryCast(sender, MyPictureBox)
                 If pb IsNot Nothing AndAlso Not String.IsNullOrEmpty(pb.wallhaven_path) Then
@@ -317,8 +332,14 @@ Public Class Form1
     Private Async Sub PictureBox_Download_MouseClick(sender As Object, e As MouseEventArgs)
         Dim control As Control = TryCast(sender, Control)
         If control IsNot Nothing AndAlso TypeOf control.Parent Is Panel Then
-            Console.WriteLine(DirectCast(sender, MyButton).wallhaven_path)
-            'Console.WriteLine(DirectCast(sender, MyButton).wallhaven_downloaded)
+
+            If Not Directory.Exists(FolderBrowserDialog_DownloadDirectory.SelectedPath) Then
+                If Not Directory.Exists(Application.StartupPath + "\Backgrounds") Then
+                    Directory.CreateDirectory(Application.StartupPath + "\Backgrounds")
+                End If
+                FolderBrowserDialog_DownloadDirectory.SelectedPath = Application.StartupPath + "\Backgrounds"
+                My.Settings.DownloadDir = Application.StartupPath + "\Backgrounds"
+            End If
 
             Dim fileurl As String = DirectCast(sender, MyButton).wallhaven_path
             Dim filename As String = Path.GetFileName(fileurl)
@@ -327,30 +348,22 @@ Public Class Form1
             Dim ownerPanelBottom As Panel = DirectCast(control.Parent, Panel)
             Dim ownerPanelMain As Panel = CType(ownerPanelBottom.Parent, Panel)
 
-            Console.WriteLine("The Owner is: " & ownerPanelBottom.Name)
-            Console.WriteLine("The Owner is: " & ownerPanelMain.Name)
-            Console.WriteLine("The Owner is: " & ownerPanelMain.Controls(0).Name)
-
-            Console.WriteLine(ownerPanelMain.Controls(0).Name)
-
             Using client As New HttpClient()
                 ' Download the image bytes
                 Dim imageBytes As Byte() = Await client.GetByteArrayAsync(fileurl)
 
                 ' Create a file path to save the image (e.g., in the user's temp directory)
-                Dim wallpaperPath As String = Path.Combine(FolderBrowserDialog1.SelectedPath, filename)
+                Dim wallpaperPath As String = Path.Combine(FolderBrowserDialog_DownloadDirectory.SelectedPath, filename)
 
-                ' Save the downloaded image bytes as a BMP file (BMP is required for wallpapers)
+                ' Save the downloaded image bytes
                 Using ms As New MemoryStream(imageBytes)
                     Dim img As Image = Image.FromStream(ms)
                     img.Save(wallpaperPath)
                 End Using
             End Using
 
-            DirectCast(ownerPanelMain.Controls(1), MyPictureBox).wallhaven_path = Path.Combine(FolderBrowserDialog1.SelectedPath, filename)
+            DirectCast(ownerPanelMain.Controls(1), MyPictureBox).wallhaven_path = Path.Combine(FolderBrowserDialog_DownloadDirectory.SelectedPath, filename)
             DirectCast(ownerPanelMain.Controls(1), MyPictureBox).wallhaven_downloaded = True
-
-
             DirectCast(ownerPanelMain.Controls(0), MyPictureBox).Visible = True
             DirectCast(sender, MyButton).Visible = False
         Else
@@ -368,14 +381,14 @@ Public Class Form1
     End Sub
 
     ' Form1 - ResizeEnd
-    Private Sub Form1_ResizeEnd(sender As Object, e As EventArgs) Handles Me.ResizeEnd
-        Console.WriteLine(Me.Size.ToString)
-    End Sub
+    'Private Sub Form1_ResizeEnd(sender As Object, e As EventArgs) Handles Me.ResizeEnd
+    'Console.WriteLine(Me.Size.ToString)
+    'End Sub
 
     ' Button_DownloadDirectory - Click
     Private Sub Button_DownloadDirectory_Click(sender As Object, e As EventArgs) Handles Button_DownloadDirectory.Click
-        If FolderBrowserDialog1.ShowDialog() = DialogResult.OK Then
-            My.Settings.DownloadDir = FolderBrowserDialog1.SelectedPath
+        If FolderBrowserDialog_DownloadDirectory.ShowDialog() = DialogResult.OK Then
+            My.Settings.DownloadDir = FolderBrowserDialog_DownloadDirectory.SelectedPath
         End If
     End Sub
 
@@ -508,7 +521,7 @@ Public Class Form1
 
     ' Label_Color - MouseClick
     Private Sub Label_Color_MouseClick(sender As Object, e As MouseEventArgs) Handles Label_SelectedColor.MouseClick
-        ContextMenuStrip1.Show(Label_SelectedColor, e.Location)
+        ContextMenuStrip_Colors.Show(Label_SelectedColor, e.Location)
     End Sub
 
     ' ComboBox_Ratio - SelectedIndexChanged
@@ -572,7 +585,6 @@ Public Class Form1
     Private Sub ComboBox_Resolution_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Resolution.SelectedIndexChanged
         If Not ComboBox_Resolution.SelectedIndex = -1 Then
             My.Settings.ResolutionIndex = ComboBox_Resolution.SelectedIndex
-            'Console.WriteLine(ComboBox_Resolution.Items.Item(ComboBox_Resolution.SelectedIndex).ToString().Replace(" ", ""))
         End If
     End Sub
 
@@ -638,8 +650,6 @@ Public Class Form1
     Private Sub TextBox_CustomResolutionWidth_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_CustomResolutionWidth.KeyPress
         If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
             e.Handled = True ' Block invalid input
-        Else
-            Console.WriteLine("TextBox_CustomResolutionWidth_KeyPress")
         End If
     End Sub
 
@@ -647,8 +657,6 @@ Public Class Form1
     Private Sub TextBox_CustomResolutionHeight_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_CustomResolutionHeight.KeyPress
         If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
             e.Handled = True ' Block invalid input
-        Else
-            Console.WriteLine("TextBox_CustomResolutionHeight_KeyPress")
         End If
     End Sub
 
@@ -667,7 +675,6 @@ Public Class Form1
             TextBox_CustomResolutionWidth.Text = cleanText
             TextBox_CustomResolutionWidth.SelectionStart = TextBox_CustomResolutionWidth.Text.Length ' Keep cursor at the end
             My.Settings.CustomResolutionWidth = cleanText
-            Console.WriteLine(TextBox_CustomResolutionWidth.Text)
         End If
 
         My.Settings.CustomResolutionWidth = TextBox_CustomResolutionWidth.Text
@@ -688,7 +695,6 @@ Public Class Form1
             TextBox_CustomResolutionHeight.Text = cleanText
             TextBox_CustomResolutionHeight.SelectionStart = TextBox_CustomResolutionHeight.Text.Length ' Keep cursor at the end
             My.Settings.CustomResolutionHeight = cleanText
-            Console.WriteLine(TextBox_CustomResolutionHeight.Text)
         End If
 
         My.Settings.CustomResolutionHeight = TextBox_CustomResolutionHeight.Text
@@ -720,28 +726,27 @@ Public Class Form1
         End If
     End Sub
 
-    ' ContextMenuStrip2 - Opening
-    Private Sub ContextMenuStrip2_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip2.Opening
-        If Directory.Exists(FolderBrowserDialog1.SelectedPath) Then
-            OpenDownloadDirectoryToolStripMenuItem.Enabled = True
+    ' ContextMenuStrip_ODD - Opening
+    Private Sub ContextMenuStrip_ODD_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip_ODD.Opening
+        If Directory.Exists(FolderBrowserDialog_DownloadDirectory.SelectedPath) Then
+            ToolStripMenuItem_OpenDownloadDirectory.Enabled = True
         Else
-            OpenDownloadDirectoryToolStripMenuItem.Enabled = False
+            ToolStripMenuItem_OpenDownloadDirectory.Enabled = False
         End If
     End Sub
 
-    ' OpenDownloadDirectory - ToolStripMenuItem - Click
-    Private Sub OpenDownloadDirectoryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenDownloadDirectoryToolStripMenuItem.Click
-        Process.Start(FolderBrowserDialog1.SelectedPath)
+    ' ToolStripMenuItem_OpenDownloadDirectory - Click
+    Private Sub ToolStripMenuItem_OpenDownloadDirectory_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_OpenDownloadDirectory.Click
+        Process.Start(FolderBrowserDialog_DownloadDirectory.SelectedPath)
     End Sub
 
     ' Button_DownloadDirectory - MouseEnter
     Private Sub Button_DownloadDirectory_MouseEnter(sender As Object, e As EventArgs) Handles Button_DownloadDirectory.MouseEnter
-        If Directory.Exists(FolderBrowserDialog1.SelectedPath) Then
-            ToolTip1.SetToolTip(Button_DownloadDirectory, "Download Directory: " + FolderBrowserDialog1.SelectedPath)
+        If Directory.Exists(FolderBrowserDialog_DownloadDirectory.SelectedPath) Then
+            ToolTip1.SetToolTip(Button_DownloadDirectory, "Download Directory: " + FolderBrowserDialog_DownloadDirectory.SelectedPath)
         Else
             ToolTip1.SetToolTip(Button_DownloadDirectory, "Download Directory: Not vaild")
         End If
-        Console.WriteLine("MouseEnter")
     End Sub
 
     ' ToolTip1 - Draw
@@ -774,8 +779,79 @@ Public Class Form1
         My.Settings.Anime = CheckBox_Anime.Checked
     End Sub
 
-    ' NoColorToolStripMenuItem - Click
-    Private Sub NoColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NoColorToolStripMenuItem.Click
+    ' Button_WallpaperStyles - MouseClick
+    Private Sub Button_WallpaperStyles_MouseClick(sender As Object, e As MouseEventArgs) Handles Button_WallpaperStyles.MouseClick
+        If e.Button = MouseButtons.Left Then
+            ContextMenuStrip_WallpaperStyles.Show(Button_WallpaperStyles, e.Location)
+        End If
+    End Sub
+
+    ' SetWallpaperStyle(style)
+    Sub SetWallpaperStyle(style As String)
+        Try
+            ' Open Registry Key
+            Dim regKey As RegistryKey = Registry.CurrentUser.OpenSubKey("Control Panel\Desktop", True)
+
+            ' Set style based on input
+            Select Case style.ToLower()
+                Case "tiled"
+                    regKey.SetValue("WallpaperStyle", "0")
+                    regKey.SetValue("TileWallpaper", "1")
+                Case "centered"
+                    regKey.SetValue("WallpaperStyle", "0")
+                    regKey.SetValue("TileWallpaper", "0")
+                Case "stretched"
+                    regKey.SetValue("WallpaperStyle", "2")
+                    regKey.SetValue("TileWallpaper", "0")
+                Case "fit"
+                    regKey.SetValue("WallpaperStyle", "6")
+                    regKey.SetValue("TileWallpaper", "0")
+                Case "fill"
+                    regKey.SetValue("WallpaperStyle", "10")
+                    regKey.SetValue("TileWallpaper", "0")
+                Case Else
+                    Throw New ArgumentException("Invalid wallpaper style. Use: tiled, centered, stretched, fit, fill.")
+            End Select
+
+            regKey.Close()
+
+            ' Refresh desktop by reapplying the current wallpaper
+            Dim currentWallpaper As String = Registry.GetValue("HKEY_CURRENT_USER\Control Panel\Desktop", "Wallpaper", "").ToString()
+            SystemParametersInfo(SPI_SETDESKWALLPAPER, 0, currentWallpaper, SPIF_UPDATEINIFILE Or SPIF_SENDCHANGE)
+
+            Console.WriteLine("Wallpaper style updated successfully!")
+        Catch ex As Exception
+            Console.WriteLine("Error: " & ex.Message)
+        End Try
+    End Sub
+
+    ' ToolStripMenuItem_StyleTiled_Click
+    Private Sub ToolStripMenuItem_StyleTiled_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleTiled.Click
+        SetWallpaperStyle("tiled")
+    End Sub
+
+    ' ToolStripMenuItem_StyleCentered - Click
+    Private Sub ToolStripMenuItem_StyleCentered_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleCentered.Click
+        SetWallpaperStyle("centered")
+    End Sub
+
+    ' ToolStripMenuItem_StyleStretched - Click
+    Private Sub ToolStripMenuItem_StyleStretched_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleStretched.Click
+        SetWallpaperStyle("stretched")
+    End Sub
+
+    ' ToolStripMenuItem_StyleFit - Click
+    Private Sub ToolStripMenuItem_StyleFit_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleFit.Click
+        SetWallpaperStyle("fit")
+    End Sub
+
+    ' ToolStripMenuItem_StyleFill - Click
+    Private Sub ToolStripMenuItem_StyleFill_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleFill.Click
+        SetWallpaperStyle("fill")
+    End Sub
+
+    ' ToolStripMenuItem_NoColor - Click
+    Private Sub ToolStripMenuItem_NoColor_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_NoColor.Click
         Label_SelectedColor.Text = "No Color"
         Label_SelectedColor.ForeColor = Color.WhiteSmoke
     End Sub

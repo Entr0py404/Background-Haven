@@ -25,8 +25,8 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.NoColorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip_Colors = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem_NoColor = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_660000 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_990000 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_cc0000 = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,6 +60,13 @@ Partial Class Form1
         Me.ComboBox_Sorting = New System.Windows.Forms.ComboBox()
         Me.CheckBox_AIArt = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button_WallpaperStyles = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip_WallpaperStyles = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem_StyleTiled = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleCentered = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleStretched = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleFit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleFill = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckBox_Anime = New System.Windows.Forms.CheckBox()
         Me.TextBox_CustomResolutionHeight = New System.Windows.Forms.TextBox()
         Me.Label_CustomResolutionX = New System.Windows.Forms.Label()
@@ -69,8 +76,8 @@ Partial Class Form1
         Me.ComboBox_Ratio = New System.Windows.Forms.ComboBox()
         Me.Button_SortingOrder = New System.Windows.Forms.Button()
         Me.Button_DownloadDirectory = New System.Windows.Forms.Button()
-        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.OpenDownloadDirectoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContextMenuStrip_ODD = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem_OpenDownloadDirectory = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label_Color = New System.Windows.Forms.Label()
         Me.Label_SelectedColor = New System.Windows.Forms.Label()
         Me.Button_Search = New System.Windows.Forms.Button()
@@ -79,13 +86,14 @@ Partial Class Form1
         Me.NumericUpDown_Page = New System.Windows.Forms.NumericUpDown()
         Me.Button_Next = New System.Windows.Forms.Button()
         Me.Button_Prev = New System.Windows.Forms.Button()
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.FolderBrowserDialog_DownloadDirectory = New System.Windows.Forms.FolderBrowserDialog()
         Me.Timer_FadeIn = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_FadeOut = New System.Windows.Forms.Timer(Me.components)
-        Me.ContextMenuStrip1.SuspendLayout()
+        Me.ContextMenuStrip_Colors.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        Me.ContextMenuStrip2.SuspendLayout()
+        Me.ContextMenuStrip_WallpaperStyles.SuspendLayout()
+        Me.ContextMenuStrip_ODD.SuspendLayout()
         Me.Panel_Pages.SuspendLayout()
         CType(Me.NumericUpDown_Page, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -101,24 +109,24 @@ Partial Class Form1
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1312, 732)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
-        'ContextMenuStrip1
+        'ContextMenuStrip_Colors
         '
-        Me.ContextMenuStrip1.AutoSize = False
-        Me.ContextMenuStrip1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NoColorToolStripMenuItem, Me.ToolStripMenuItem_660000, Me.ToolStripMenuItem_990000, Me.ToolStripMenuItem_cc0000, Me.ToolStripMenuItem_cc3333, Me.ToolStripMenuItem_ea4c88, Me.ToolStripMenuItem_993399, Me.ToolStripMenuItem_663399, Me.ToolStripMenuItem_333399, Me.ToolStripMenuItem_0066cc, Me.ToolStripMenuItem_0099cc, Me.ToolStripMenuItem_66cccc, Me.ToolStripMenuItem_77cc33, Me.ToolStripMenuItem_669900, Me.ToolStripMenuItem_336600, Me.ToolStripMenuItem_666600, Me.ToolStripMenuItem_999900, Me.ToolStripMenuItem_cccc33, Me.ToolStripMenuItem_ffff00, Me.ToolStripMenuItem_ffcc33, Me.ToolStripMenuItem_ff9900, Me.ToolStripMenuItem_ff6600, Me.ToolStripMenuItem_cc6633, Me.ToolStripMenuItem_996633, Me.ToolStripMenuItem_663300, Me.ToolStripMenuItem_000000, Me.ToolStripMenuItem_999999, Me.ToolStripMenuItem_cccccc, Me.ToolStripMenuItem_ffffff, Me.ToolStripMenuItem_424153})
-        Me.ContextMenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.ShowImageMargin = False
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(70, 606)
+        Me.ContextMenuStrip_Colors.AutoSize = False
+        Me.ContextMenuStrip_Colors.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ContextMenuStrip_Colors.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem_NoColor, Me.ToolStripMenuItem_660000, Me.ToolStripMenuItem_990000, Me.ToolStripMenuItem_cc0000, Me.ToolStripMenuItem_cc3333, Me.ToolStripMenuItem_ea4c88, Me.ToolStripMenuItem_993399, Me.ToolStripMenuItem_663399, Me.ToolStripMenuItem_333399, Me.ToolStripMenuItem_0066cc, Me.ToolStripMenuItem_0099cc, Me.ToolStripMenuItem_66cccc, Me.ToolStripMenuItem_77cc33, Me.ToolStripMenuItem_669900, Me.ToolStripMenuItem_336600, Me.ToolStripMenuItem_666600, Me.ToolStripMenuItem_999900, Me.ToolStripMenuItem_cccc33, Me.ToolStripMenuItem_ffff00, Me.ToolStripMenuItem_ffcc33, Me.ToolStripMenuItem_ff9900, Me.ToolStripMenuItem_ff6600, Me.ToolStripMenuItem_cc6633, Me.ToolStripMenuItem_996633, Me.ToolStripMenuItem_663300, Me.ToolStripMenuItem_000000, Me.ToolStripMenuItem_999999, Me.ToolStripMenuItem_cccccc, Me.ToolStripMenuItem_ffffff, Me.ToolStripMenuItem_424153})
+        Me.ContextMenuStrip_Colors.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table
+        Me.ContextMenuStrip_Colors.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip_Colors.ShowImageMargin = False
+        Me.ContextMenuStrip_Colors.Size = New System.Drawing.Size(70, 606)
         '
-        'NoColorToolStripMenuItem
+        'ToolStripMenuItem_NoColor
         '
-        Me.NoColorToolStripMenuItem.AutoSize = False
-        Me.NoColorToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.NoColorToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NoColorToolStripMenuItem.Name = "NoColorToolStripMenuItem"
-        Me.NoColorToolStripMenuItem.Size = New System.Drawing.Size(70, 22)
-        Me.NoColorToolStripMenuItem.Text = "No Color"
+        Me.ToolStripMenuItem_NoColor.AutoSize = False
+        Me.ToolStripMenuItem_NoColor.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.ToolStripMenuItem_NoColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolStripMenuItem_NoColor.Name = "ToolStripMenuItem_NoColor"
+        Me.ToolStripMenuItem_NoColor.Size = New System.Drawing.Size(70, 22)
+        Me.ToolStripMenuItem_NoColor.Text = "No Color"
         '
         'ToolStripMenuItem_660000
         '
@@ -329,7 +337,7 @@ Partial Class Form1
         Me.TextBox_SearchQuery.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox_SearchQuery.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox_SearchQuery.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox_SearchQuery.Location = New System.Drawing.Point(51, 11)
+        Me.TextBox_SearchQuery.Location = New System.Drawing.Point(87, 11)
         Me.TextBox_SearchQuery.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.TextBox_SearchQuery.Name = "TextBox_SearchQuery"
         Me.TextBox_SearchQuery.Size = New System.Drawing.Size(183, 26)
@@ -344,7 +352,7 @@ Partial Class Form1
         Me.ComboBox_Sorting.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ComboBox_Sorting.FormattingEnabled = True
         Me.ComboBox_Sorting.Items.AddRange(New Object() {"Relevance", "Random", "Date Added", "Views", "Favorites", "Toplist", "Hot"})
-        Me.ComboBox_Sorting.Location = New System.Drawing.Point(276, 11)
+        Me.ComboBox_Sorting.Location = New System.Drawing.Point(318, 11)
         Me.ComboBox_Sorting.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.ComboBox_Sorting.Name = "ComboBox_Sorting"
         Me.ComboBox_Sorting.Size = New System.Drawing.Size(106, 26)
@@ -354,7 +362,7 @@ Partial Class Form1
         '
         Me.CheckBox_AIArt.AutoSize = True
         Me.CheckBox_AIArt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox_AIArt.Location = New System.Drawing.Point(541, 15)
+        Me.CheckBox_AIArt.Location = New System.Drawing.Point(583, 15)
         Me.CheckBox_AIArt.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.CheckBox_AIArt.Name = "CheckBox_AIArt"
         Me.CheckBox_AIArt.Size = New System.Drawing.Size(57, 20)
@@ -365,6 +373,7 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Button_WallpaperStyles)
         Me.Panel1.Controls.Add(Me.CheckBox_Anime)
         Me.Panel1.Controls.Add(Me.TextBox_CustomResolutionHeight)
         Me.Panel1.Controls.Add(Me.Label_CustomResolutionX)
@@ -387,11 +396,70 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(1312, 48)
         Me.Panel1.TabIndex = 5
         '
+        'Button_WallpaperStyles
+        '
+        Me.Button_WallpaperStyles.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_WallpaperStyles.ContextMenuStrip = Me.ContextMenuStrip_WallpaperStyles
+        Me.Button_WallpaperStyles.FlatAppearance.BorderSize = 0
+        Me.Button_WallpaperStyles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_WallpaperStyles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_WallpaperStyles.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Computer_Desktop_48
+        Me.Button_WallpaperStyles.Location = New System.Drawing.Point(51, 12)
+        Me.Button_WallpaperStyles.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_WallpaperStyles.Name = "Button_WallpaperStyles"
+        Me.Button_WallpaperStyles.Size = New System.Drawing.Size(24, 24)
+        Me.Button_WallpaperStyles.TabIndex = 20
+        Me.Button_WallpaperStyles.UseVisualStyleBackColor = False
+        '
+        'ContextMenuStrip_WallpaperStyles
+        '
+        Me.ContextMenuStrip_WallpaperStyles.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.ContextMenuStrip_WallpaperStyles.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ContextMenuStrip_WallpaperStyles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem_StyleTiled, Me.ToolStripMenuItem_StyleCentered, Me.ToolStripMenuItem_StyleStretched, Me.ToolStripMenuItem_StyleFit, Me.ToolStripMenuItem_StyleFill})
+        Me.ContextMenuStrip_WallpaperStyles.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip_WallpaperStyles.ShowImageMargin = False
+        Me.ContextMenuStrip_WallpaperStyles.Size = New System.Drawing.Size(117, 124)
+        '
+        'ToolStripMenuItem_StyleTiled
+        '
+        Me.ToolStripMenuItem_StyleTiled.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleTiled.Name = "ToolStripMenuItem_StyleTiled"
+        Me.ToolStripMenuItem_StyleTiled.Size = New System.Drawing.Size(116, 24)
+        Me.ToolStripMenuItem_StyleTiled.Text = "Tiled"
+        '
+        'ToolStripMenuItem_StyleCentered
+        '
+        Me.ToolStripMenuItem_StyleCentered.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleCentered.Name = "ToolStripMenuItem_StyleCentered"
+        Me.ToolStripMenuItem_StyleCentered.Size = New System.Drawing.Size(116, 24)
+        Me.ToolStripMenuItem_StyleCentered.Text = "Centered"
+        '
+        'ToolStripMenuItem_StyleStretched
+        '
+        Me.ToolStripMenuItem_StyleStretched.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleStretched.Name = "ToolStripMenuItem_StyleStretched"
+        Me.ToolStripMenuItem_StyleStretched.Size = New System.Drawing.Size(116, 24)
+        Me.ToolStripMenuItem_StyleStretched.Text = "Stretched"
+        '
+        'ToolStripMenuItem_StyleFit
+        '
+        Me.ToolStripMenuItem_StyleFit.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleFit.Name = "ToolStripMenuItem_StyleFit"
+        Me.ToolStripMenuItem_StyleFit.Size = New System.Drawing.Size(116, 24)
+        Me.ToolStripMenuItem_StyleFit.Text = "Fit"
+        '
+        'ToolStripMenuItem_StyleFill
+        '
+        Me.ToolStripMenuItem_StyleFill.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleFill.Name = "ToolStripMenuItem_StyleFill"
+        Me.ToolStripMenuItem_StyleFill.Size = New System.Drawing.Size(116, 24)
+        Me.ToolStripMenuItem_StyleFill.Text = "Fill"
+        '
         'CheckBox_Anime
         '
         Me.CheckBox_Anime.AutoSize = True
         Me.CheckBox_Anime.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox_Anime.Location = New System.Drawing.Point(604, 15)
+        Me.CheckBox_Anime.Location = New System.Drawing.Point(646, 15)
         Me.CheckBox_Anime.Margin = New System.Windows.Forms.Padding(0, 3, 6, 3)
         Me.CheckBox_Anime.Name = "CheckBox_Anime"
         Me.CheckBox_Anime.Size = New System.Drawing.Size(64, 20)
@@ -405,7 +473,7 @@ Partial Class Form1
         Me.TextBox_CustomResolutionHeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox_CustomResolutionHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox_CustomResolutionHeight.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox_CustomResolutionHeight.Location = New System.Drawing.Point(843, 11)
+        Me.TextBox_CustomResolutionHeight.Location = New System.Drawing.Point(885, 11)
         Me.TextBox_CustomResolutionHeight.Name = "TextBox_CustomResolutionHeight"
         Me.TextBox_CustomResolutionHeight.Size = New System.Drawing.Size(50, 26)
         Me.TextBox_CustomResolutionHeight.TabIndex = 18
@@ -415,7 +483,7 @@ Partial Class Form1
         '
         Me.Label_CustomResolutionX.AutoSize = True
         Me.Label_CustomResolutionX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_CustomResolutionX.Location = New System.Drawing.Point(825, 16)
+        Me.Label_CustomResolutionX.Location = New System.Drawing.Point(867, 16)
         Me.Label_CustomResolutionX.Margin = New System.Windows.Forms.Padding(0)
         Me.Label_CustomResolutionX.Name = "Label_CustomResolutionX"
         Me.Label_CustomResolutionX.Size = New System.Drawing.Size(15, 16)
@@ -429,7 +497,7 @@ Partial Class Form1
         Me.TextBox_CustomResolutionWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox_CustomResolutionWidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox_CustomResolutionWidth.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox_CustomResolutionWidth.Location = New System.Drawing.Point(772, 11)
+        Me.TextBox_CustomResolutionWidth.Location = New System.Drawing.Point(814, 11)
         Me.TextBox_CustomResolutionWidth.Name = "TextBox_CustomResolutionWidth"
         Me.TextBox_CustomResolutionWidth.Size = New System.Drawing.Size(50, 26)
         Me.TextBox_CustomResolutionWidth.TabIndex = 16
@@ -439,7 +507,7 @@ Partial Class Form1
         '
         Me.Label_Exactly.AutoSize = True
         Me.Label_Exactly.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Exactly.Location = New System.Drawing.Point(902, 16)
+        Me.Label_Exactly.Location = New System.Drawing.Point(944, 16)
         Me.Label_Exactly.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Label_Exactly.Name = "Label_Exactly"
         Me.Label_Exactly.Size = New System.Drawing.Size(50, 16)
@@ -455,7 +523,7 @@ Partial Class Form1
         Me.ComboBox_Resolution.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ComboBox_Resolution.FormattingEnabled = True
         Me.ComboBox_Resolution.Items.AddRange(New Object() {"Relevance", "Random", "Date Added", "Views", "Favorites", "Toplist", "Hot"})
-        Me.ComboBox_Resolution.Location = New System.Drawing.Point(772, 11)
+        Me.ComboBox_Resolution.Location = New System.Drawing.Point(814, 11)
         Me.ComboBox_Resolution.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.ComboBox_Resolution.Name = "ComboBox_Resolution"
         Me.ComboBox_Resolution.Size = New System.Drawing.Size(110, 26)
@@ -470,7 +538,7 @@ Partial Class Form1
         Me.ComboBox_Ratio.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ComboBox_Ratio.FormattingEnabled = True
         Me.ComboBox_Ratio.Items.AddRange(New Object() {"Custom", "UW", "16:9", "16:10", "4:3", "5:4"})
-        Me.ComboBox_Ratio.Location = New System.Drawing.Point(680, 11)
+        Me.ComboBox_Ratio.Location = New System.Drawing.Point(722, 11)
         Me.ComboBox_Ratio.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.ComboBox_Ratio.Name = "ComboBox_Ratio"
         Me.ComboBox_Ratio.Size = New System.Drawing.Size(80, 26)
@@ -483,7 +551,7 @@ Partial Class Form1
         Me.Button_SortingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_SortingOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_SortingOrder.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Arrow_Down_48
-        Me.Button_SortingOrder.Location = New System.Drawing.Point(394, 12)
+        Me.Button_SortingOrder.Location = New System.Drawing.Point(436, 12)
         Me.Button_SortingOrder.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Button_SortingOrder.Name = "Button_SortingOrder"
         Me.Button_SortingOrder.Size = New System.Drawing.Size(24, 24)
@@ -493,7 +561,7 @@ Partial Class Form1
         'Button_DownloadDirectory
         '
         Me.Button_DownloadDirectory.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_DownloadDirectory.ContextMenuStrip = Me.ContextMenuStrip2
+        Me.Button_DownloadDirectory.ContextMenuStrip = Me.ContextMenuStrip_ODD
         Me.Button_DownloadDirectory.FlatAppearance.BorderSize = 0
         Me.Button_DownloadDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_DownloadDirectory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -505,27 +573,27 @@ Partial Class Form1
         Me.Button_DownloadDirectory.TabIndex = 11
         Me.Button_DownloadDirectory.UseVisualStyleBackColor = False
         '
-        'ContextMenuStrip2
+        'ContextMenuStrip_ODD
         '
-        Me.ContextMenuStrip2.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.ContextMenuStrip2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenDownloadDirectoryToolStripMenuItem})
-        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
-        Me.ContextMenuStrip2.ShowImageMargin = False
-        Me.ContextMenuStrip2.Size = New System.Drawing.Size(224, 28)
+        Me.ContextMenuStrip_ODD.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.ContextMenuStrip_ODD.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ContextMenuStrip_ODD.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem_OpenDownloadDirectory})
+        Me.ContextMenuStrip_ODD.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip_ODD.ShowImageMargin = False
+        Me.ContextMenuStrip_ODD.Size = New System.Drawing.Size(224, 28)
         '
-        'OpenDownloadDirectoryToolStripMenuItem
+        'ToolStripMenuItem_OpenDownloadDirectory
         '
-        Me.OpenDownloadDirectoryToolStripMenuItem.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.OpenDownloadDirectoryToolStripMenuItem.Name = "OpenDownloadDirectoryToolStripMenuItem"
-        Me.OpenDownloadDirectoryToolStripMenuItem.Size = New System.Drawing.Size(223, 24)
-        Me.OpenDownloadDirectoryToolStripMenuItem.Text = "Open download directory"
+        Me.ToolStripMenuItem_OpenDownloadDirectory.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_OpenDownloadDirectory.Name = "ToolStripMenuItem_OpenDownloadDirectory"
+        Me.ToolStripMenuItem_OpenDownloadDirectory.Size = New System.Drawing.Size(223, 24)
+        Me.ToolStripMenuItem_OpenDownloadDirectory.Text = "Open download directory"
         '
         'Label_Color
         '
         Me.Label_Color.AutoSize = True
         Me.Label_Color.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Color.Location = New System.Drawing.Point(430, 16)
+        Me.Label_Color.Location = New System.Drawing.Point(472, 16)
         Me.Label_Color.Margin = New System.Windows.Forms.Padding(6, 0, 0, 0)
         Me.Label_Color.Name = "Label_Color"
         Me.Label_Color.Size = New System.Drawing.Size(42, 16)
@@ -536,7 +604,7 @@ Partial Class Form1
         '
         Me.Label_SelectedColor.AutoSize = True
         Me.Label_SelectedColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SelectedColor.Location = New System.Drawing.Point(472, 16)
+        Me.Label_SelectedColor.Location = New System.Drawing.Point(514, 16)
         Me.Label_SelectedColor.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label_SelectedColor.Name = "Label_SelectedColor"
         Me.Label_SelectedColor.Size = New System.Drawing.Size(60, 16)
@@ -550,7 +618,8 @@ Partial Class Form1
         Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Search.Image = Global.BackgroundHaven.My.Resources.Resources.Steve_Zondicons_Refresh_48
-        Me.Button_Search.Location = New System.Drawing.Point(243, 11)
+        Me.Button_Search.Location = New System.Drawing.Point(282, 12)
+        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Button_Search.Name = "Button_Search"
         Me.Button_Search.Size = New System.Drawing.Size(24, 24)
         Me.Button_Search.TabIndex = 7
@@ -622,10 +691,10 @@ Partial Class Form1
         Me.Button_Prev.TabIndex = 5
         Me.Button_Prev.UseVisualStyleBackColor = False
         '
-        'FolderBrowserDialog1
+        'FolderBrowserDialog_DownloadDirectory
         '
-        Me.FolderBrowserDialog1.Description = "Select a download directory for BackgroundHaven"
-        Me.FolderBrowserDialog1.ShowNewFolderButton = False
+        Me.FolderBrowserDialog_DownloadDirectory.Description = "Select a download directory for BackgroundHaven"
+        Me.FolderBrowserDialog_DownloadDirectory.ShowNewFolderButton = False
         '
         'Timer_FadeIn
         '
@@ -654,10 +723,11 @@ Partial Class Form1
         Me.Opacity = 0.95R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BackgroundHaven"
-        Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.ContextMenuStrip_Colors.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        Me.ContextMenuStrip2.ResumeLayout(False)
+        Me.ContextMenuStrip_WallpaperStyles.ResumeLayout(False)
+        Me.ContextMenuStrip_ODD.ResumeLayout(False)
         Me.Panel_Pages.ResumeLayout(False)
         CType(Me.NumericUpDown_Page, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -665,7 +735,7 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents ContextMenuStrip_Colors As ContextMenuStrip
     Friend WithEvents TextBox_SearchQuery As TextBox
     Friend WithEvents ComboBox_Sorting As ComboBox
     Friend WithEvents CheckBox_AIArt As CheckBox
@@ -676,7 +746,7 @@ Partial Class Form1
     Friend WithEvents Button_Next As Button
     Friend WithEvents Button_Search As Button
     Friend WithEvents Label_SelectedColor As Label
-    Friend WithEvents NoColorToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_NoColor As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_660000 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_990000 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_cc0000 As ToolStripMenuItem
@@ -708,7 +778,7 @@ Partial Class Form1
     Friend WithEvents ToolStripMenuItem_ffffff As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_424153 As ToolStripMenuItem
     Friend WithEvents Button_DownloadDirectory As Button
-    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents FolderBrowserDialog_DownloadDirectory As FolderBrowserDialog
     Friend WithEvents Button_SortingOrder As Button
     Friend WithEvents ComboBox_Ratio As ComboBox
     Friend WithEvents ComboBox_Resolution As ComboBox
@@ -718,9 +788,16 @@ Partial Class Form1
     Friend WithEvents TextBox_CustomResolutionHeight As TextBox
     Friend WithEvents Label_CustomResolutionX As Label
     Friend WithEvents Timer_FadeIn As Timer
-    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
-    Friend WithEvents OpenDownloadDirectoryToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ContextMenuStrip_ODD As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem_OpenDownloadDirectory As ToolStripMenuItem
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents CheckBox_Anime As CheckBox
     Friend WithEvents Timer_FadeOut As Timer
+    Friend WithEvents Button_WallpaperStyles As Button
+    Friend WithEvents ContextMenuStrip_WallpaperStyles As ContextMenuStrip
+    Friend WithEvents ToolStripMenuItem_StyleTiled As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_StyleCentered As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_StyleStretched As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_StyleFit As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_StyleFill As ToolStripMenuItem
 End Class
