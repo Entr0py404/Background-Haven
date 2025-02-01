@@ -2,6 +2,7 @@
 Imports System.Net.Http
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 Imports Microsoft.Win32
 Imports Newtonsoft.Json
 
@@ -380,18 +381,6 @@ Public Class Form1
         End If
     End Sub
 
-    ' Form1 - ResizeEnd
-    'Private Sub Form1_ResizeEnd(sender As Object, e As EventArgs) Handles Me.ResizeEnd
-    'Console.WriteLine(Me.Size.ToString)
-    'End Sub
-
-    ' Button_DownloadDirectory - Click
-    Private Sub Button_DownloadDirectory_Click(sender As Object, e As EventArgs) Handles Button_DownloadDirectory.Click
-        If FolderBrowserDialog_DownloadDirectory.ShowDialog() = DialogResult.OK Then
-            My.Settings.DownloadDir = FolderBrowserDialog_DownloadDirectory.SelectedPath
-        End If
-    End Sub
-
     ' Button_Prev - Click
     Private Sub Button_Prev_Click(sender As Object, e As EventArgs) Handles Button_Prev.Click
         If Not Pages_current_page = 1 Then
@@ -730,22 +719,29 @@ Public Class Form1
     Private Sub ContextMenuStrip_ODD_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip_ODD.Opening
         If Directory.Exists(FolderBrowserDialog_DownloadDirectory.SelectedPath) Then
             ToolStripMenuItem_OpenDownloadDirectory.Enabled = True
+            ToolTip1.Show("Download Directory: " & FolderBrowserDialog_DownloadDirectory.SelectedPath, ContextMenuStrip_ODD, New Point(0, ContextMenuStrip_ODD.Height), 5000)
         Else
             ToolStripMenuItem_OpenDownloadDirectory.Enabled = False
+            ToolTip1.Show("Download Directory: Not valid", ContextMenuStrip_ODD, New Point(0, ContextMenuStrip_ODD.Height), 5000)
+        End If
+    End Sub
+
+    ' ContextMenuStrip_ODD - Closed
+    Private Sub ContextMenuStrip_ODD_Closed(sender As Object, e As ToolStripDropDownClosedEventArgs) Handles ContextMenuStrip_ODD.Closed
+        ToolTip1.Hide(ContextMenuStrip_ODD)
+    End Sub
+
+    ' ToolStripMenuItem_SetDownloadDirectory - Click
+    Private Sub ToolStripMenuItem_SetDownloadDirectory_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_SetDownloadDirectory.Click
+        If FolderBrowserDialog_DownloadDirectory.ShowDialog() = DialogResult.OK Then
+            My.Settings.DownloadDir = FolderBrowserDialog_DownloadDirectory.SelectedPath
         End If
     End Sub
 
     ' ToolStripMenuItem_OpenDownloadDirectory - Click
     Private Sub ToolStripMenuItem_OpenDownloadDirectory_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_OpenDownloadDirectory.Click
-        Process.Start(FolderBrowserDialog_DownloadDirectory.SelectedPath)
-    End Sub
-
-    ' Button_DownloadDirectory - MouseEnter
-    Private Sub Button_DownloadDirectory_MouseEnter(sender As Object, e As EventArgs) Handles Button_DownloadDirectory.MouseEnter
         If Directory.Exists(FolderBrowserDialog_DownloadDirectory.SelectedPath) Then
-            ToolTip1.SetToolTip(Button_DownloadDirectory, "Download Directory: " + FolderBrowserDialog_DownloadDirectory.SelectedPath)
-        Else
-            ToolTip1.SetToolTip(Button_DownloadDirectory, "Download Directory: Not vaild")
+            Process.Start(FolderBrowserDialog_DownloadDirectory.SelectedPath)
         End If
     End Sub
 
@@ -777,6 +773,13 @@ Public Class Form1
     ' CheckBox_Anime - CheckedChanged
     Private Sub CheckBox_Anime_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox_Anime.CheckedChanged
         My.Settings.Anime = CheckBox_Anime.Checked
+    End Sub
+
+    ' Button_DownloadDirectory - MouseClick
+    Private Sub Button_DownloadDirectory_MouseClick(sender As Object, e As MouseEventArgs) Handles Button_DownloadDirectory.MouseClick
+        If e.Button = MouseButtons.Left Then
+            ContextMenuStrip_ODD.Show(Button_DownloadDirectory, e.Location)
+        End If
     End Sub
 
     ' Button_WallpaperStyles - MouseClick

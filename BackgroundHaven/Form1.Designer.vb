@@ -77,6 +77,7 @@ Partial Class Form1
         Me.Button_SortingOrder = New System.Windows.Forms.Button()
         Me.Button_DownloadDirectory = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_ODD = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItem_SetDownloadDirectory = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_OpenDownloadDirectory = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label_Color = New System.Windows.Forms.Label()
         Me.Label_SelectedColor = New System.Windows.Forms.Label()
@@ -577,10 +578,17 @@ Partial Class Form1
         '
         Me.ContextMenuStrip_ODD.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.ContextMenuStrip_ODD.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuStrip_ODD.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem_OpenDownloadDirectory})
+        Me.ContextMenuStrip_ODD.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem_SetDownloadDirectory, Me.ToolStripMenuItem_OpenDownloadDirectory})
         Me.ContextMenuStrip_ODD.Name = "ContextMenuStrip2"
         Me.ContextMenuStrip_ODD.ShowImageMargin = False
-        Me.ContextMenuStrip_ODD.Size = New System.Drawing.Size(224, 28)
+        Me.ContextMenuStrip_ODD.Size = New System.Drawing.Size(224, 52)
+        '
+        'ToolStripMenuItem_SetDownloadDirectory
+        '
+        Me.ToolStripMenuItem_SetDownloadDirectory.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_SetDownloadDirectory.Name = "ToolStripMenuItem_SetDownloadDirectory"
+        Me.ToolStripMenuItem_SetDownloadDirectory.Size = New System.Drawing.Size(223, 24)
+        Me.ToolStripMenuItem_SetDownloadDirectory.Text = "Set download directory"
         '
         'ToolStripMenuItem_OpenDownloadDirectory
         '
@@ -800,4 +808,5 @@ Partial Class Form1
     Friend WithEvents ToolStripMenuItem_StyleStretched As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_StyleFit As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_StyleFill As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_SetDownloadDirectory As ToolStripMenuItem
 End Class
