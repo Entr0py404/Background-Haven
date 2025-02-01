@@ -797,26 +797,26 @@ Public Class Form1
 
             ' Set style based on input
             Select Case style.ToLower()
-                Case "tiled"
-                    regKey.SetValue("WallpaperStyle", "0")
-                    regKey.SetValue("TileWallpaper", "1")
-                Case "centered"
-                    regKey.SetValue("WallpaperStyle", "0")
-                    regKey.SetValue("TileWallpaper", "0")
-                Case "stretched"
-                    regKey.SetValue("WallpaperStyle", "2")
+                Case "fill"
+                    regKey.SetValue("WallpaperStyle", "10")
                     regKey.SetValue("TileWallpaper", "0")
                 Case "fit"
                     regKey.SetValue("WallpaperStyle", "6")
                     regKey.SetValue("TileWallpaper", "0")
-                Case "fill"
-                    regKey.SetValue("WallpaperStyle", "10")
+                Case "stretch"
+                    regKey.SetValue("WallpaperStyle", "2")
+                    regKey.SetValue("TileWallpaper", "0")
+                Case "tile"
+                    regKey.SetValue("WallpaperStyle", "0")
+                    regKey.SetValue("TileWallpaper", "1")
+                Case "center"
+                    regKey.SetValue("WallpaperStyle", "0")
                     regKey.SetValue("TileWallpaper", "0")
                 Case "span"
                     regKey.SetValue("WallpaperStyle", "22")
                     regKey.SetValue("TileWallpaper", "0")
                 Case Else
-                    Throw New ArgumentException("Invalid wallpaper style. Use: tiled, centered, stretched, fit, fill.")
+                    Throw New ArgumentException("Invalid wallpaper style. Use: fill, fit, stretch, tile, center, span.")
             End Select
 
             regKey.Close()
@@ -831,19 +831,9 @@ Public Class Form1
         End Try
     End Sub
 
-    ' ToolStripMenuItem_StyleTiled_Click
-    Private Sub ToolStripMenuItem_StyleTiled_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleTiled.Click
-        SetWallpaperStyle("tiled")
-    End Sub
-
-    ' ToolStripMenuItem_StyleCentered - Click
-    Private Sub ToolStripMenuItem_StyleCentered_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleCentered.Click
-        SetWallpaperStyle("centered")
-    End Sub
-
-    ' ToolStripMenuItem_StyleStretched - Click
-    Private Sub ToolStripMenuItem_StyleStretched_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleStretched.Click
-        SetWallpaperStyle("stretched")
+    ' ToolStripMenuItem_StyleFill - Click
+    Private Sub ToolStripMenuItem_StyleFill_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleFill.Click
+        SetWallpaperStyle("fill")
     End Sub
 
     ' ToolStripMenuItem_StyleFit - Click
@@ -851,9 +841,19 @@ Public Class Form1
         SetWallpaperStyle("fit")
     End Sub
 
-    ' ToolStripMenuItem_StyleFill - Click
-    Private Sub ToolStripMenuItem_StyleFill_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleFill.Click
-        SetWallpaperStyle("fill")
+    ' ToolStripMenuItem_StyleStretch - Click
+    Private Sub ToolStripMenuItem_StyleStretch_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleStretch.Click
+        SetWallpaperStyle("stretch")
+    End Sub
+
+    ' ToolStripMenuItem_StyleTile_Click
+    Private Sub ToolStripMenuItem_StyleTile_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleTile.Click
+        SetWallpaperStyle("tile")
+    End Sub
+
+    ' ToolStripMenuItem_StyleCenter - Click
+    Private Sub ToolStripMenuItem_StyleCenter_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_StyleCenter.Click
+        SetWallpaperStyle("center")
     End Sub
 
     ' ToolStripMenuItem_Span - Click

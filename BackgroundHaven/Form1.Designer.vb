@@ -62,11 +62,12 @@ Partial Class Form1
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button_WallpaperStyles = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_WallpaperStyles = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.ToolStripMenuItem_StyleTiled = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem_StyleCentered = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripMenuItem_StyleStretched = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleTile = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleCenter = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_StyleStretch = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_StyleFit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_StyleFill = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem_Span = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckBox_Anime = New System.Windows.Forms.CheckBox()
         Me.TextBox_CustomResolutionHeight = New System.Windows.Forms.TextBox()
         Me.Label_CustomResolutionX = New System.Windows.Forms.Label()
@@ -91,7 +92,6 @@ Partial Class Form1
         Me.Timer_FadeIn = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_FadeOut = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolStripMenuItem_Span = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip_Colors.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.ContextMenuStrip_WallpaperStyles.SuspendLayout()
@@ -417,45 +417,52 @@ Partial Class Form1
         '
         Me.ContextMenuStrip_WallpaperStyles.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
         Me.ContextMenuStrip_WallpaperStyles.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContextMenuStrip_WallpaperStyles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem_StyleTiled, Me.ToolStripMenuItem_StyleCentered, Me.ToolStripMenuItem_StyleStretched, Me.ToolStripMenuItem_StyleFit, Me.ToolStripMenuItem_StyleFill, Me.ToolStripMenuItem_Span})
+        Me.ContextMenuStrip_WallpaperStyles.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem_StyleFill, Me.ToolStripMenuItem_StyleFit, Me.ToolStripMenuItem_StyleStretch, Me.ToolStripMenuItem_StyleTile, Me.ToolStripMenuItem_StyleCenter, Me.ToolStripMenuItem_Span})
         Me.ContextMenuStrip_WallpaperStyles.Name = "ContextMenuStrip2"
         Me.ContextMenuStrip_WallpaperStyles.ShowImageMargin = False
-        Me.ContextMenuStrip_WallpaperStyles.Size = New System.Drawing.Size(156, 170)
+        Me.ContextMenuStrip_WallpaperStyles.Size = New System.Drawing.Size(100, 148)
         '
-        'ToolStripMenuItem_StyleTiled
+        'ToolStripMenuItem_StyleTile
         '
-        Me.ToolStripMenuItem_StyleTiled.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ToolStripMenuItem_StyleTiled.Name = "ToolStripMenuItem_StyleTiled"
-        Me.ToolStripMenuItem_StyleTiled.Size = New System.Drawing.Size(155, 24)
-        Me.ToolStripMenuItem_StyleTiled.Text = "Tiled"
+        Me.ToolStripMenuItem_StyleTile.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleTile.Name = "ToolStripMenuItem_StyleTile"
+        Me.ToolStripMenuItem_StyleTile.Size = New System.Drawing.Size(99, 24)
+        Me.ToolStripMenuItem_StyleTile.Text = "Tile"
         '
-        'ToolStripMenuItem_StyleCentered
+        'ToolStripMenuItem_StyleCenter
         '
-        Me.ToolStripMenuItem_StyleCentered.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ToolStripMenuItem_StyleCentered.Name = "ToolStripMenuItem_StyleCentered"
-        Me.ToolStripMenuItem_StyleCentered.Size = New System.Drawing.Size(155, 24)
-        Me.ToolStripMenuItem_StyleCentered.Text = "Centered"
+        Me.ToolStripMenuItem_StyleCenter.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleCenter.Name = "ToolStripMenuItem_StyleCenter"
+        Me.ToolStripMenuItem_StyleCenter.Size = New System.Drawing.Size(99, 24)
+        Me.ToolStripMenuItem_StyleCenter.Text = "Center"
         '
-        'ToolStripMenuItem_StyleStretched
+        'ToolStripMenuItem_StyleStretch
         '
-        Me.ToolStripMenuItem_StyleStretched.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ToolStripMenuItem_StyleStretched.Name = "ToolStripMenuItem_StyleStretched"
-        Me.ToolStripMenuItem_StyleStretched.Size = New System.Drawing.Size(155, 24)
-        Me.ToolStripMenuItem_StyleStretched.Text = "Stretched"
+        Me.ToolStripMenuItem_StyleStretch.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_StyleStretch.Name = "ToolStripMenuItem_StyleStretch"
+        Me.ToolStripMenuItem_StyleStretch.Size = New System.Drawing.Size(99, 24)
+        Me.ToolStripMenuItem_StyleStretch.Text = "Stretch"
         '
         'ToolStripMenuItem_StyleFit
         '
         Me.ToolStripMenuItem_StyleFit.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ToolStripMenuItem_StyleFit.Name = "ToolStripMenuItem_StyleFit"
-        Me.ToolStripMenuItem_StyleFit.Size = New System.Drawing.Size(155, 24)
+        Me.ToolStripMenuItem_StyleFit.Size = New System.Drawing.Size(99, 24)
         Me.ToolStripMenuItem_StyleFit.Text = "Fit"
         '
         'ToolStripMenuItem_StyleFill
         '
         Me.ToolStripMenuItem_StyleFill.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ToolStripMenuItem_StyleFill.Name = "ToolStripMenuItem_StyleFill"
-        Me.ToolStripMenuItem_StyleFill.Size = New System.Drawing.Size(155, 24)
+        Me.ToolStripMenuItem_StyleFill.Size = New System.Drawing.Size(99, 24)
         Me.ToolStripMenuItem_StyleFill.Text = "Fill"
+        '
+        'ToolStripMenuItem_Span
+        '
+        Me.ToolStripMenuItem_Span.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ToolStripMenuItem_Span.Name = "ToolStripMenuItem_Span"
+        Me.ToolStripMenuItem_Span.Size = New System.Drawing.Size(99, 24)
+        Me.ToolStripMenuItem_Span.Text = "Span"
         '
         'CheckBox_Anime
         '
@@ -717,13 +724,6 @@ Partial Class Form1
         '
         Me.Timer_FadeOut.Interval = 20
         '
-        'ToolStripMenuItem_Span
-        '
-        Me.ToolStripMenuItem_Span.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ToolStripMenuItem_Span.Name = "ToolStripMenuItem_Span"
-        Me.ToolStripMenuItem_Span.Size = New System.Drawing.Size(155, 24)
-        Me.ToolStripMenuItem_Span.Text = "Span"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -811,9 +811,9 @@ Partial Class Form1
     Friend WithEvents Timer_FadeOut As Timer
     Friend WithEvents Button_WallpaperStyles As Button
     Friend WithEvents ContextMenuStrip_WallpaperStyles As ContextMenuStrip
-    Friend WithEvents ToolStripMenuItem_StyleTiled As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem_StyleCentered As ToolStripMenuItem
-    Friend WithEvents ToolStripMenuItem_StyleStretched As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_StyleTile As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_StyleCenter As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem_StyleStretch As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_StyleFit As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_StyleFill As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_SetDownloadDirectory As ToolStripMenuItem
