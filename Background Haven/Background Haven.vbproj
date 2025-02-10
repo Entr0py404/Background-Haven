@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0B2724EF-ADAA-47BF-BAC2-545887896949}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>BackgroundHaven.My.MyApplication</StartupObject>
-    <RootNamespace>BackgroundHaven</RootNamespace>
-    <AssemblyName>BackgroundHaven</AssemblyName>
+    <StartupObject>Background_Haven.My.MyApplication</StartupObject>
+    <RootNamespace>Background_Haven</RootNamespace>
+    <AssemblyName>Background Haven</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>BackgroundHaven.xml</DocumentationFile>
+    <DocumentationFile>Background Haven.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -34,7 +34,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>BackgroundHaven.xml</DocumentationFile>
+    <DocumentationFile>Background Haven.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>

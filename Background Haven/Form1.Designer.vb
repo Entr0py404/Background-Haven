@@ -59,7 +59,9 @@ Partial Class Form1
         Me.TextBox_SearchQuery = New System.Windows.Forms.TextBox()
         Me.ComboBox_Sorting = New System.Windows.Forms.ComboBox()
         Me.CheckBox_AIArt = New System.Windows.Forms.CheckBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel_Top = New System.Windows.Forms.Panel()
+        Me.ComboBox_Ratio = New System.Windows.Forms.ComboBox()
+        Me.Button_WallpaperStyles = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_WallpaperStyles = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem_StyleFill = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_StyleFit = New System.Windows.Forms.ToolStripMenuItem()
@@ -67,33 +69,31 @@ Partial Class Form1
         Me.ToolStripMenuItem_StyleTile = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_StyleCenter = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_Span = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CheckBox_Anime = New System.Windows.Forms.CheckBox()
-        Me.TextBox_CustomResolutionHeight = New System.Windows.Forms.TextBox()
-        Me.Label_CustomResolutionX = New System.Windows.Forms.Label()
-        Me.TextBox_CustomResolutionWidth = New System.Windows.Forms.TextBox()
         Me.Label_Exactly = New System.Windows.Forms.Label()
-        Me.ComboBox_Resolution = New System.Windows.Forms.ComboBox()
-        Me.ComboBox_Ratio = New System.Windows.Forms.ComboBox()
+        Me.CheckBox_Anime = New System.Windows.Forms.CheckBox()
+        Me.TextBox_CustomResolutionWidth = New System.Windows.Forms.TextBox()
+        Me.Button_SortingOrder = New System.Windows.Forms.Button()
+        Me.Label_CustomResolutionX = New System.Windows.Forms.Label()
+        Me.Button_DownloadDirectory = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_ODD = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem_SetDownloadDirectory = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem_OpenDownloadDirectory = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TextBox_CustomResolutionHeight = New System.Windows.Forms.TextBox()
         Me.Label_Color = New System.Windows.Forms.Label()
         Me.Label_SelectedColor = New System.Windows.Forms.Label()
+        Me.Button_Search = New System.Windows.Forms.Button()
         Me.Panel_Pages = New System.Windows.Forms.Panel()
         Me.Label_Pages = New System.Windows.Forms.Label()
         Me.NumericUpDown_Page = New System.Windows.Forms.NumericUpDown()
+        Me.Button_Next = New System.Windows.Forms.Button()
+        Me.Button_Prev = New System.Windows.Forms.Button()
+        Me.ComboBox_Resolution = New System.Windows.Forms.ComboBox()
         Me.FolderBrowserDialog_DownloadDirectory = New System.Windows.Forms.FolderBrowserDialog()
         Me.Timer_FadeIn = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_FadeOut = New System.Windows.Forms.Timer(Me.components)
-        Me.Button_WallpaperStyles = New System.Windows.Forms.Button()
-        Me.Button_SortingOrder = New System.Windows.Forms.Button()
-        Me.Button_DownloadDirectory = New System.Windows.Forms.Button()
-        Me.Button_Search = New System.Windows.Forms.Button()
-        Me.Button_Next = New System.Windows.Forms.Button()
-        Me.Button_Prev = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_Colors.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.Panel_Top.SuspendLayout()
         Me.ContextMenuStrip_WallpaperStyles.SuspendLayout()
         Me.ContextMenuStrip_ODD.SuspendLayout()
         Me.Panel_Pages.SuspendLayout()
@@ -107,7 +107,7 @@ Partial Class Form1
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 48)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(24, 18, 12, 0)
+        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(24, 0, 12, 0)
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1312, 732)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
@@ -354,8 +354,8 @@ Partial Class Form1
         Me.ComboBox_Sorting.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ComboBox_Sorting.FormattingEnabled = True
         Me.ComboBox_Sorting.Items.AddRange(New Object() {"Relevance", "Random", "Date Added", "Views", "Favorites", "Toplist", "Hot"})
-        Me.ComboBox_Sorting.Location = New System.Drawing.Point(318, 11)
-        Me.ComboBox_Sorting.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.ComboBox_Sorting.Location = New System.Drawing.Point(851, 11)
+        Me.ComboBox_Sorting.Margin = New System.Windows.Forms.Padding(12, 3, 6, 3)
         Me.ComboBox_Sorting.Name = "ComboBox_Sorting"
         Me.ComboBox_Sorting.Size = New System.Drawing.Size(106, 26)
         Me.ComboBox_Sorting.TabIndex = 3
@@ -363,40 +363,70 @@ Partial Class Form1
         'CheckBox_AIArt
         '
         Me.CheckBox_AIArt.AutoSize = True
-        Me.CheckBox_AIArt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox_AIArt.Location = New System.Drawing.Point(583, 15)
-        Me.CheckBox_AIArt.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.CheckBox_AIArt.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox_AIArt.Location = New System.Drawing.Point(577, 13)
+        Me.CheckBox_AIArt.Margin = New System.Windows.Forms.Padding(12, 3, 6, 3)
         Me.CheckBox_AIArt.Name = "CheckBox_AIArt"
-        Me.CheckBox_AIArt.Size = New System.Drawing.Size(57, 20)
+        Me.CheckBox_AIArt.Size = New System.Drawing.Size(61, 22)
         Me.CheckBox_AIArt.TabIndex = 4
         Me.CheckBox_AIArt.Text = "AI Art"
         Me.CheckBox_AIArt.UseVisualStyleBackColor = True
         '
-        'Panel1
+        'Panel_Top
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Button_WallpaperStyles)
-        Me.Panel1.Controls.Add(Me.CheckBox_Anime)
-        Me.Panel1.Controls.Add(Me.TextBox_CustomResolutionHeight)
-        Me.Panel1.Controls.Add(Me.Label_CustomResolutionX)
-        Me.Panel1.Controls.Add(Me.TextBox_CustomResolutionWidth)
-        Me.Panel1.Controls.Add(Me.Label_Exactly)
-        Me.Panel1.Controls.Add(Me.ComboBox_Resolution)
-        Me.Panel1.Controls.Add(Me.ComboBox_Ratio)
-        Me.Panel1.Controls.Add(Me.Button_SortingOrder)
-        Me.Panel1.Controls.Add(Me.Button_DownloadDirectory)
-        Me.Panel1.Controls.Add(Me.Label_Color)
-        Me.Panel1.Controls.Add(Me.Label_SelectedColor)
-        Me.Panel1.Controls.Add(Me.Button_Search)
-        Me.Panel1.Controls.Add(Me.Panel_Pages)
-        Me.Panel1.Controls.Add(Me.TextBox_SearchQuery)
-        Me.Panel1.Controls.Add(Me.CheckBox_AIArt)
-        Me.Panel1.Controls.Add(Me.ComboBox_Sorting)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1312, 48)
-        Me.Panel1.TabIndex = 5
+        Me.Panel_Top.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Panel_Top.Controls.Add(Me.ComboBox_Ratio)
+        Me.Panel_Top.Controls.Add(Me.Button_WallpaperStyles)
+        Me.Panel_Top.Controls.Add(Me.Label_Exactly)
+        Me.Panel_Top.Controls.Add(Me.CheckBox_Anime)
+        Me.Panel_Top.Controls.Add(Me.TextBox_CustomResolutionWidth)
+        Me.Panel_Top.Controls.Add(Me.Button_SortingOrder)
+        Me.Panel_Top.Controls.Add(Me.Label_CustomResolutionX)
+        Me.Panel_Top.Controls.Add(Me.Button_DownloadDirectory)
+        Me.Panel_Top.Controls.Add(Me.TextBox_CustomResolutionHeight)
+        Me.Panel_Top.Controls.Add(Me.Label_Color)
+        Me.Panel_Top.Controls.Add(Me.Label_SelectedColor)
+        Me.Panel_Top.Controls.Add(Me.Button_Search)
+        Me.Panel_Top.Controls.Add(Me.Panel_Pages)
+        Me.Panel_Top.Controls.Add(Me.TextBox_SearchQuery)
+        Me.Panel_Top.Controls.Add(Me.CheckBox_AIArt)
+        Me.Panel_Top.Controls.Add(Me.ComboBox_Sorting)
+        Me.Panel_Top.Controls.Add(Me.ComboBox_Resolution)
+        Me.Panel_Top.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top.Location = New System.Drawing.Point(0, 0)
+        Me.Panel_Top.Name = "Panel_Top"
+        Me.Panel_Top.Size = New System.Drawing.Size(1312, 48)
+        Me.Panel_Top.TabIndex = 5
+        '
+        'ComboBox_Ratio
+        '
+        Me.ComboBox_Ratio.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.ComboBox_Ratio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_Ratio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox_Ratio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox_Ratio.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ComboBox_Ratio.FormattingEnabled = True
+        Me.ComboBox_Ratio.Items.AddRange(New Object() {"Custom", "UW", "16:9", "16:10", "4:3", "5:4"})
+        Me.ComboBox_Ratio.Location = New System.Drawing.Point(282, 11)
+        Me.ComboBox_Ratio.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.ComboBox_Ratio.Name = "ComboBox_Ratio"
+        Me.ComboBox_Ratio.Size = New System.Drawing.Size(80, 26)
+        Me.ComboBox_Ratio.TabIndex = 13
+        '
+        'Button_WallpaperStyles
+        '
+        Me.Button_WallpaperStyles.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_WallpaperStyles.ContextMenuStrip = Me.ContextMenuStrip_WallpaperStyles
+        Me.Button_WallpaperStyles.FlatAppearance.BorderSize = 0
+        Me.Button_WallpaperStyles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_WallpaperStyles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_WallpaperStyles.Image = Global.Background_Haven.My.Resources.Resources.SteveZondicons_Computer_Desktop
+        Me.Button_WallpaperStyles.Location = New System.Drawing.Point(51, 12)
+        Me.Button_WallpaperStyles.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_WallpaperStyles.Name = "Button_WallpaperStyles"
+        Me.Button_WallpaperStyles.Size = New System.Drawing.Size(24, 24)
+        Me.Button_WallpaperStyles.TabIndex = 20
+        Me.Button_WallpaperStyles.UseVisualStyleBackColor = False
         '
         'ContextMenuStrip_WallpaperStyles
         '
@@ -449,41 +479,28 @@ Partial Class Form1
         Me.ToolStripMenuItem_Span.Size = New System.Drawing.Size(99, 24)
         Me.ToolStripMenuItem_Span.Text = "Span"
         '
+        'Label_Exactly
+        '
+        Me.Label_Exactly.AutoSize = True
+        Me.Label_Exactly.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Exactly.Location = New System.Drawing.Point(504, 14)
+        Me.Label_Exactly.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Label_Exactly.Name = "Label_Exactly"
+        Me.Label_Exactly.Size = New System.Drawing.Size(55, 18)
+        Me.Label_Exactly.TabIndex = 15
+        Me.Label_Exactly.Text = "Exactly"
+        '
         'CheckBox_Anime
         '
         Me.CheckBox_Anime.AutoSize = True
-        Me.CheckBox_Anime.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox_Anime.Location = New System.Drawing.Point(646, 15)
+        Me.CheckBox_Anime.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox_Anime.Location = New System.Drawing.Point(644, 13)
         Me.CheckBox_Anime.Margin = New System.Windows.Forms.Padding(0, 3, 6, 3)
         Me.CheckBox_Anime.Name = "CheckBox_Anime"
-        Me.CheckBox_Anime.Size = New System.Drawing.Size(64, 20)
+        Me.CheckBox_Anime.Size = New System.Drawing.Size(68, 22)
         Me.CheckBox_Anime.TabIndex = 19
         Me.CheckBox_Anime.Text = "Anime"
         Me.CheckBox_Anime.UseVisualStyleBackColor = True
-        '
-        'TextBox_CustomResolutionHeight
-        '
-        Me.TextBox_CustomResolutionHeight.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.TextBox_CustomResolutionHeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox_CustomResolutionHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox_CustomResolutionHeight.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox_CustomResolutionHeight.Location = New System.Drawing.Point(885, 11)
-        Me.TextBox_CustomResolutionHeight.Name = "TextBox_CustomResolutionHeight"
-        Me.TextBox_CustomResolutionHeight.Size = New System.Drawing.Size(50, 26)
-        Me.TextBox_CustomResolutionHeight.TabIndex = 18
-        Me.TextBox_CustomResolutionHeight.Visible = False
-        '
-        'Label_CustomResolutionX
-        '
-        Me.Label_CustomResolutionX.AutoSize = True
-        Me.Label_CustomResolutionX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_CustomResolutionX.Location = New System.Drawing.Point(867, 16)
-        Me.Label_CustomResolutionX.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label_CustomResolutionX.Name = "Label_CustomResolutionX"
-        Me.Label_CustomResolutionX.Size = New System.Drawing.Size(15, 16)
-        Me.Label_CustomResolutionX.TabIndex = 17
-        Me.Label_CustomResolutionX.Text = "X"
-        Me.Label_CustomResolutionX.Visible = False
         '
         'TextBox_CustomResolutionWidth
         '
@@ -491,52 +508,52 @@ Partial Class Form1
         Me.TextBox_CustomResolutionWidth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBox_CustomResolutionWidth.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox_CustomResolutionWidth.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.TextBox_CustomResolutionWidth.Location = New System.Drawing.Point(814, 11)
+        Me.TextBox_CustomResolutionWidth.Location = New System.Drawing.Point(374, 11)
         Me.TextBox_CustomResolutionWidth.Name = "TextBox_CustomResolutionWidth"
         Me.TextBox_CustomResolutionWidth.Size = New System.Drawing.Size(50, 26)
         Me.TextBox_CustomResolutionWidth.TabIndex = 16
         Me.TextBox_CustomResolutionWidth.Visible = False
         '
-        'Label_Exactly
+        'Button_SortingOrder
         '
-        Me.Label_Exactly.AutoSize = True
-        Me.Label_Exactly.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Exactly.Location = New System.Drawing.Point(944, 16)
-        Me.Label_Exactly.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Label_Exactly.Name = "Label_Exactly"
-        Me.Label_Exactly.Size = New System.Drawing.Size(50, 16)
-        Me.Label_Exactly.TabIndex = 15
-        Me.Label_Exactly.Text = "Exactly"
+        Me.Button_SortingOrder.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_SortingOrder.FlatAppearance.BorderSize = 0
+        Me.Button_SortingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_SortingOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_SortingOrder.Image = Global.Background_Haven.My.Resources.Resources.SteveZondicons_Arrow_Down
+        Me.Button_SortingOrder.Location = New System.Drawing.Point(963, 12)
+        Me.Button_SortingOrder.Margin = New System.Windows.Forms.Padding(0, 3, 6, 3)
+        Me.Button_SortingOrder.Name = "Button_SortingOrder"
+        Me.Button_SortingOrder.Size = New System.Drawing.Size(24, 24)
+        Me.Button_SortingOrder.TabIndex = 12
+        Me.Button_SortingOrder.UseVisualStyleBackColor = False
         '
-        'ComboBox_Resolution
+        'Label_CustomResolutionX
         '
-        Me.ComboBox_Resolution.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.ComboBox_Resolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox_Resolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox_Resolution.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox_Resolution.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ComboBox_Resolution.FormattingEnabled = True
-        Me.ComboBox_Resolution.Items.AddRange(New Object() {"Relevance", "Random", "Date Added", "Views", "Favorites", "Toplist", "Hot"})
-        Me.ComboBox_Resolution.Location = New System.Drawing.Point(814, 11)
-        Me.ComboBox_Resolution.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.ComboBox_Resolution.Name = "ComboBox_Resolution"
-        Me.ComboBox_Resolution.Size = New System.Drawing.Size(110, 26)
-        Me.ComboBox_Resolution.TabIndex = 14
+        Me.Label_CustomResolutionX.AutoSize = True
+        Me.Label_CustomResolutionX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_CustomResolutionX.Location = New System.Drawing.Point(427, 16)
+        Me.Label_CustomResolutionX.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label_CustomResolutionX.Name = "Label_CustomResolutionX"
+        Me.Label_CustomResolutionX.Size = New System.Drawing.Size(15, 16)
+        Me.Label_CustomResolutionX.TabIndex = 17
+        Me.Label_CustomResolutionX.Text = "X"
+        Me.Label_CustomResolutionX.Visible = False
         '
-        'ComboBox_Ratio
+        'Button_DownloadDirectory
         '
-        Me.ComboBox_Ratio.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
-        Me.ComboBox_Ratio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox_Ratio.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ComboBox_Ratio.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox_Ratio.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.ComboBox_Ratio.FormattingEnabled = True
-        Me.ComboBox_Ratio.Items.AddRange(New Object() {"Custom", "UW", "16:9", "16:10", "4:3", "5:4"})
-        Me.ComboBox_Ratio.Location = New System.Drawing.Point(722, 11)
-        Me.ComboBox_Ratio.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.ComboBox_Ratio.Name = "ComboBox_Ratio"
-        Me.ComboBox_Ratio.Size = New System.Drawing.Size(80, 26)
-        Me.ComboBox_Ratio.TabIndex = 13
+        Me.Button_DownloadDirectory.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_DownloadDirectory.ContextMenuStrip = Me.ContextMenuStrip_ODD
+        Me.Button_DownloadDirectory.FlatAppearance.BorderSize = 0
+        Me.Button_DownloadDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_DownloadDirectory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_DownloadDirectory.Image = Global.Background_Haven.My.Resources.Resources.SteveZondicons_Folder
+        Me.Button_DownloadDirectory.Location = New System.Drawing.Point(15, 12)
+        Me.Button_DownloadDirectory.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_DownloadDirectory.Name = "Button_DownloadDirectory"
+        Me.Button_DownloadDirectory.Size = New System.Drawing.Size(24, 24)
+        Me.Button_DownloadDirectory.TabIndex = 11
+        Me.Button_DownloadDirectory.UseVisualStyleBackColor = False
         '
         'ContextMenuStrip_ODD
         '
@@ -561,27 +578,53 @@ Partial Class Form1
         Me.ToolStripMenuItem_OpenDownloadDirectory.Size = New System.Drawing.Size(223, 24)
         Me.ToolStripMenuItem_OpenDownloadDirectory.Text = "Open download directory"
         '
+        'TextBox_CustomResolutionHeight
+        '
+        Me.TextBox_CustomResolutionHeight.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.TextBox_CustomResolutionHeight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBox_CustomResolutionHeight.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox_CustomResolutionHeight.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.TextBox_CustomResolutionHeight.Location = New System.Drawing.Point(445, 11)
+        Me.TextBox_CustomResolutionHeight.Name = "TextBox_CustomResolutionHeight"
+        Me.TextBox_CustomResolutionHeight.Size = New System.Drawing.Size(50, 26)
+        Me.TextBox_CustomResolutionHeight.TabIndex = 18
+        Me.TextBox_CustomResolutionHeight.Visible = False
+        '
         'Label_Color
         '
         Me.Label_Color.AutoSize = True
-        Me.Label_Color.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_Color.Location = New System.Drawing.Point(472, 16)
-        Me.Label_Color.Margin = New System.Windows.Forms.Padding(6, 0, 0, 0)
+        Me.Label_Color.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Color.Location = New System.Drawing.Point(718, 14)
+        Me.Label_Color.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.Label_Color.Name = "Label_Color"
-        Me.Label_Color.Size = New System.Drawing.Size(42, 16)
+        Me.Label_Color.Size = New System.Drawing.Size(49, 18)
         Me.Label_Color.TabIndex = 10
         Me.Label_Color.Text = "Color:"
         '
         'Label_SelectedColor
         '
         Me.Label_SelectedColor.AutoSize = True
-        Me.Label_SelectedColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label_SelectedColor.Location = New System.Drawing.Point(514, 16)
+        Me.Label_SelectedColor.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SelectedColor.Location = New System.Drawing.Point(767, 14)
         Me.Label_SelectedColor.Margin = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.Label_SelectedColor.Name = "Label_SelectedColor"
-        Me.Label_SelectedColor.Size = New System.Drawing.Size(60, 16)
+        Me.Label_SelectedColor.Size = New System.Drawing.Size(69, 18)
         Me.Label_SelectedColor.TabIndex = 9
         Me.Label_SelectedColor.Text = "No Color"
+        '
+        'Button_Search
+        '
+        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Button_Search.FlatAppearance.BorderSize = 0
+        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Search.Image = Global.Background_Haven.My.Resources.Resources.SteveZondicons_Refresh
+        Me.Button_Search.Location = New System.Drawing.Point(999, 8)
+        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_Search.Name = "Button_Search"
+        Me.Button_Search.Size = New System.Drawing.Size(32, 32)
+        Me.Button_Search.TabIndex = 7
+        Me.Button_Search.UseVisualStyleBackColor = False
         '
         'Panel_Pages
         '
@@ -621,6 +664,49 @@ Partial Class Form1
         Me.NumericUpDown_Page.Value = New Decimal(New Integer() {1, 0, 0, 0})
         Me.NumericUpDown_Page.Visible = False
         '
+        'Button_Next
+        '
+        Me.Button_Next.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_Next.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Button_Next.FlatAppearance.BorderSize = 0
+        Me.Button_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Next.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Next.Image = Global.Background_Haven.My.Resources.Resources.SteveZondicons_Cheveron_Right
+        Me.Button_Next.Location = New System.Drawing.Point(116, 0)
+        Me.Button_Next.Name = "Button_Next"
+        Me.Button_Next.Size = New System.Drawing.Size(24, 48)
+        Me.Button_Next.TabIndex = 6
+        Me.Button_Next.UseVisualStyleBackColor = False
+        '
+        'Button_Prev
+        '
+        Me.Button_Prev.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Button_Prev.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button_Prev.FlatAppearance.BorderSize = 0
+        Me.Button_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Prev.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Prev.Image = Global.Background_Haven.My.Resources.Resources.SteveZondicons_Cheveron_Left
+        Me.Button_Prev.Location = New System.Drawing.Point(0, 0)
+        Me.Button_Prev.Name = "Button_Prev"
+        Me.Button_Prev.Size = New System.Drawing.Size(24, 48)
+        Me.Button_Prev.TabIndex = 5
+        Me.Button_Prev.UseVisualStyleBackColor = False
+        '
+        'ComboBox_Resolution
+        '
+        Me.ComboBox_Resolution.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(46, Byte), Integer))
+        Me.ComboBox_Resolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_Resolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBox_Resolution.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBox_Resolution.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.ComboBox_Resolution.FormattingEnabled = True
+        Me.ComboBox_Resolution.Items.AddRange(New Object() {"Relevance", "Random", "Date Added", "Views", "Favorites", "Toplist", "Hot"})
+        Me.ComboBox_Resolution.Location = New System.Drawing.Point(374, 11)
+        Me.ComboBox_Resolution.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.ComboBox_Resolution.Name = "ComboBox_Resolution"
+        Me.ComboBox_Resolution.Size = New System.Drawing.Size(121, 26)
+        Me.ComboBox_Resolution.TabIndex = 14
+        '
         'FolderBrowserDialog_DownloadDirectory
         '
         Me.FolderBrowserDialog_DownloadDirectory.Description = "Select a download directory for BackgroundHaven"
@@ -638,92 +724,6 @@ Partial Class Form1
         '
         Me.Timer_FadeOut.Interval = 20
         '
-        'Button_WallpaperStyles
-        '
-        Me.Button_WallpaperStyles.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_WallpaperStyles.ContextMenuStrip = Me.ContextMenuStrip_WallpaperStyles
-        Me.Button_WallpaperStyles.FlatAppearance.BorderSize = 0
-        Me.Button_WallpaperStyles.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_WallpaperStyles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_WallpaperStyles.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Computer_Desktop
-        Me.Button_WallpaperStyles.Location = New System.Drawing.Point(51, 12)
-        Me.Button_WallpaperStyles.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_WallpaperStyles.Name = "Button_WallpaperStyles"
-        Me.Button_WallpaperStyles.Size = New System.Drawing.Size(24, 24)
-        Me.Button_WallpaperStyles.TabIndex = 20
-        Me.Button_WallpaperStyles.UseVisualStyleBackColor = False
-        '
-        'Button_SortingOrder
-        '
-        Me.Button_SortingOrder.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_SortingOrder.FlatAppearance.BorderSize = 0
-        Me.Button_SortingOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_SortingOrder.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_SortingOrder.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Arrow_Down
-        Me.Button_SortingOrder.Location = New System.Drawing.Point(436, 12)
-        Me.Button_SortingOrder.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_SortingOrder.Name = "Button_SortingOrder"
-        Me.Button_SortingOrder.Size = New System.Drawing.Size(24, 24)
-        Me.Button_SortingOrder.TabIndex = 12
-        Me.Button_SortingOrder.UseVisualStyleBackColor = False
-        '
-        'Button_DownloadDirectory
-        '
-        Me.Button_DownloadDirectory.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_DownloadDirectory.ContextMenuStrip = Me.ContextMenuStrip_ODD
-        Me.Button_DownloadDirectory.FlatAppearance.BorderSize = 0
-        Me.Button_DownloadDirectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_DownloadDirectory.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_DownloadDirectory.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Folder
-        Me.Button_DownloadDirectory.Location = New System.Drawing.Point(15, 12)
-        Me.Button_DownloadDirectory.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_DownloadDirectory.Name = "Button_DownloadDirectory"
-        Me.Button_DownloadDirectory.Size = New System.Drawing.Size(24, 24)
-        Me.Button_DownloadDirectory.TabIndex = 11
-        Me.Button_DownloadDirectory.UseVisualStyleBackColor = False
-        '
-        'Button_Search
-        '
-        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.Button_Search.FlatAppearance.BorderSize = 0
-        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Search.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Refresh
-        Me.Button_Search.Location = New System.Drawing.Point(282, 12)
-        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_Search.Name = "Button_Search"
-        Me.Button_Search.Size = New System.Drawing.Size(24, 24)
-        Me.Button_Search.TabIndex = 7
-        Me.Button_Search.UseVisualStyleBackColor = False
-        '
-        'Button_Next
-        '
-        Me.Button_Next.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_Next.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Button_Next.FlatAppearance.BorderSize = 0
-        Me.Button_Next.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Next.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Next.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Cheveron_Right
-        Me.Button_Next.Location = New System.Drawing.Point(116, 0)
-        Me.Button_Next.Name = "Button_Next"
-        Me.Button_Next.Size = New System.Drawing.Size(24, 48)
-        Me.Button_Next.TabIndex = 6
-        Me.Button_Next.UseVisualStyleBackColor = False
-        '
-        'Button_Prev
-        '
-        Me.Button_Prev.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Button_Prev.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button_Prev.FlatAppearance.BorderSize = 0
-        Me.Button_Prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Prev.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Prev.Image = Global.BackgroundHaven.My.Resources.Resources.SteveZondicons_Cheveron_Left
-        Me.Button_Prev.Location = New System.Drawing.Point(0, 0)
-        Me.Button_Prev.Name = "Button_Prev"
-        Me.Button_Prev.Size = New System.Drawing.Size(24, 48)
-        Me.Button_Prev.TabIndex = 5
-        Me.Button_Prev.UseVisualStyleBackColor = False
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -731,17 +731,17 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1312, 780)
         Me.Controls.Add(Me.FlowLayoutPanel1)
-        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel_Top)
         Me.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "Form1"
         Me.Opacity = 0.95R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "BackgroundHaven"
+        Me.Text = "Background Haven"
         Me.ContextMenuStrip_Colors.ResumeLayout(False)
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
+        Me.Panel_Top.ResumeLayout(False)
+        Me.Panel_Top.PerformLayout()
         Me.ContextMenuStrip_WallpaperStyles.ResumeLayout(False)
         Me.ContextMenuStrip_ODD.ResumeLayout(False)
         Me.Panel_Pages.ResumeLayout(False)
@@ -755,7 +755,7 @@ Partial Class Form1
     Friend WithEvents TextBox_SearchQuery As TextBox
     Friend WithEvents ComboBox_Sorting As ComboBox
     Friend WithEvents CheckBox_AIArt As CheckBox
-    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel_Top As Panel
     Friend WithEvents Button_Prev As Button
     Friend WithEvents Panel_Pages As Panel
     Friend WithEvents Label_Pages As Label

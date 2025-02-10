@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("BackgroundHaven")>
+<Assembly: AssemblyTitle("Background Haven")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Entropy Software")>
-<Assembly: AssemblyProduct("BackgroundHaven")>
+<Assembly: AssemblyProduct("Background Haven")>
 <Assembly: AssemblyCopyright("")>
 <Assembly: AssemblyTrademark("")>
 

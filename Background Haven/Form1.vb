@@ -1,8 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net.Http
 Imports System.Runtime.InteropServices
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 Imports Microsoft.Win32
 Imports Newtonsoft.Json
 
@@ -64,7 +62,7 @@ Public Class Form1
             Panel_Wallpaper.Size = New Size(300, 224)
             Panel_Wallpaper.BackColor = Color.FromArgb(28, 30, 34)
             Panel_Wallpaper.Name = "Panel_Wallpaper" & i.ToString()
-            Panel_Wallpaper.Margin = New Padding(6, 6, 6, 6)
+            Panel_Wallpaper.Margin = New Padding(6, 8, 6, 6)
 
 
             ' PictureBox - PictureBox_Downloaded
@@ -301,14 +299,15 @@ Public Class Form1
                         Using client As New HttpClient()
                             ' Download the image bytes
                             Dim imageBytes As Byte() = Await client.GetByteArrayAsync(pb.wallhaven_path)
+                            Dim fileExtention As String = Path.GetExtension(pb.wallhaven_path)
 
                             ' Create a file path to save the image (e.g., in the user's temp directory)
-                            Dim wallpaperPath As String = Path.Combine(Path.GetTempPath(), "wallpaper.bmp")
+                            Dim wallpaperPath As String = Path.Combine(Path.GetTempPath(), "BackgroundHaven" & fileExtention)
 
-                            ' Save the downloaded image bytes as a BMP file (BMP is required for wallpapers on older systems)
+                            ' Save the downloaded image bytes
                             Using ms As New MemoryStream(imageBytes)
                                 Dim img As Image = Image.FromStream(ms)
-                                img.Save(wallpaperPath) ', System.Drawing.Imaging.ImageFormat.Bmp)
+                                img.Save(wallpaperPath)
                             End Using
 
                             ' Set the wallpaper using the Windows API
