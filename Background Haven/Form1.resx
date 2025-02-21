@@ -126,6 +126,18 @@
   <metadata name="ContextMenuStrip_ODD.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>672, 11</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Button_Search.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAElSURBVDhPlZM/TgJhEEchNiR0QDB6BQ9ig4ETUCA9HsEQryCV59ArWNgpx8BYGWNi1vfCDpld
+        PgsnecnOn9/37c7Mdi5vJn9SVdUYVqVcUAwGiPvwAetSXopBBGdwDQ/wDdoddNu1DUcomsNOBab4Z/9Y
+        PUOvXd9wKFCsbeEKLuATXuAcbmGRNVnsa3uz4mEdG8ETmDuBN3jXLx2wBG2aYj0YJH9mAbaMWD5gA19w
+        GrE25uqa+4jl5H8O2EQsJ+MTZik2gEPneZ5agBU/wUbZoFewYfqPMKrzQ7DBNvq4iXXRAhyVI3N0jtBR
+        OlLF2jxrGgcIBXbepdFcothEb26IpeEIRV1wbTXFrrNrfXjtzFEgQLAGf6R+KR8UgwHiFYxLuT2Tzi98
+        XBWaka7VwgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="FolderBrowserDialog_DownloadDirectory.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>21, 11</value>
   </metadata>
@@ -141,7 +153,6 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>59</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAcAAAAAAAEAIAC0HwAAdgAAAICAAAABACAAKAgBACogAABAQAAAAQAgAChCAABSKAEAMDAAAAEA

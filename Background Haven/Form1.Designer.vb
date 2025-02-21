@@ -81,7 +81,6 @@ Partial Class Form1
         Me.TextBox_CustomResolutionHeight = New System.Windows.Forms.TextBox()
         Me.Label_Color = New System.Windows.Forms.Label()
         Me.Label_SelectedColor = New System.Windows.Forms.Label()
-        Me.Button_Search = New System.Windows.Forms.Button()
         Me.Panel_Pages = New System.Windows.Forms.Panel()
         Me.Label_Pages = New System.Windows.Forms.Label()
         Me.NumericUpDown_Page = New System.Windows.Forms.NumericUpDown()
@@ -92,6 +91,7 @@ Partial Class Form1
         Me.Timer_FadeIn = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_FadeOut = New System.Windows.Forms.Timer(Me.components)
+        Me.Button_Search = New System.Windows.Forms.Button()
         Me.ContextMenuStrip_Colors.SuspendLayout()
         Me.Panel_Top.SuspendLayout()
         Me.ContextMenuStrip_WallpaperStyles.SuspendLayout()
@@ -612,20 +612,6 @@ Partial Class Form1
         Me.Label_SelectedColor.TabIndex = 9
         Me.Label_SelectedColor.Text = "No Color"
         '
-        'Button_Search
-        '
-        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.Button_Search.FlatAppearance.BorderSize = 0
-        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Search.Image = Global.Background_Haven.My.Resources.Resources.SteveZondicons_Refresh
-        Me.Button_Search.Location = New System.Drawing.Point(999, 8)
-        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_Search.Name = "Button_Search"
-        Me.Button_Search.Size = New System.Drawing.Size(32, 32)
-        Me.Button_Search.TabIndex = 7
-        Me.Button_Search.UseVisualStyleBackColor = False
-        '
         'Panel_Pages
         '
         Me.Panel_Pages.Controls.Add(Me.Label_Pages)
@@ -723,6 +709,20 @@ Partial Class Form1
         'Timer_FadeOut
         '
         Me.Timer_FadeOut.Interval = 20
+        '
+        'Button_Search
+        '
+        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Button_Search.FlatAppearance.BorderSize = 0
+        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Search.Image = CType(resources.GetObject("Button_Search.Image"), System.Drawing.Image)
+        Me.Button_Search.Location = New System.Drawing.Point(999, 8)
+        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_Search.Name = "Button_Search"
+        Me.Button_Search.Size = New System.Drawing.Size(32, 32)
+        Me.Button_Search.TabIndex = 7
+        Me.Button_Search.UseVisualStyleBackColor = False
         '
         'Form1
         '
