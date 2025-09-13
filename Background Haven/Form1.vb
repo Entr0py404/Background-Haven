@@ -8,10 +8,11 @@ Public Class Form1
     Private Pages_current_page As Integer
     Private Pages_last_page As Integer
     Private Pages_per_page As Integer
-    Private Pages_total As Integer
     Private Descending_sorting_order As Boolean = True
     Private Exactly_Resolution As Boolean = True
     Private SettingsLoadLock As Boolean = True
+    Private RandomsSeed As String = ""
+
     ' Declare the SystemParametersInfo function from user32.dll
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
     Private Shared Function SystemParametersInfo(ByVal uAction As UInteger, ByVal uParam As UInteger, ByVal lpvParam As String, ByVal fuWinIni As UInteger) As Boolean
@@ -59,11 +60,10 @@ Public Class Form1
         For i As Integer = 1 To 24
             ' Panel - Panel_Wallpaper
             Dim Panel_Wallpaper = New System.Windows.Forms.Panel
-            Panel_Wallpaper.Size = New Size(300, 224)
+            Panel_Wallpaper.Size = New Size(300, 193)
             Panel_Wallpaper.BackColor = Color.FromArgb(28, 30, 34)
             Panel_Wallpaper.Name = "Panel_Wallpaper" & i.ToString()
-            Panel_Wallpaper.Margin = New Padding(6, 8, 6, 6)
-
+            Panel_Wallpaper.Margin = New Padding(6, 8, 6, 8)
 
             ' PictureBox - PictureBox_Downloaded
             Dim PictureBox_Downloaded = New MyPictureBox
@@ -75,16 +75,14 @@ Public Class Form1
             PictureBox_Downloaded.BackColor = Color.Orange
             Panel_Wallpaper.Controls.Add(PictureBox_Downloaded)
 
-
             ' PictureBox - PictureBox_Wallpaper
             Dim PictureBox_Wallpaper = New MyPictureBox
             PictureBox_Wallpaper.Dock = DockStyle.Fill
-            PictureBox_Wallpaper.SizeMode = PictureBoxSizeMode.CenterImage
+            PictureBox_Wallpaper.SizeMode = PictureBoxSizeMode.Zoom
             PictureBox_Wallpaper.Name = "PictureBox_Wallpaper" & i.ToString()
             PictureBox_Wallpaper.Cursor = Cursors.Hand
             AddHandler PictureBox_Wallpaper.MouseClick, AddressOf PictureBox_Wallpaper_MouseClick
             Panel_Wallpaper.Controls.Add(PictureBox_Wallpaper)
-
 
             ' Panel - Panel_Bottom
             Dim Panel_Bottom = New System.Windows.Forms.Panel()
@@ -94,7 +92,6 @@ Public Class Form1
             Panel_Bottom.Dock = DockStyle.Bottom
             Panel_Wallpaper.Controls.Add(Panel_Bottom)
 
-
             ' Label - Label_Resolution
             Dim Label_Resolution = New System.Windows.Forms.Label
             Label_Resolution.Font = New Font("Microsoft Sans Serif", 10, FontStyle.Italic)
@@ -103,7 +100,6 @@ Public Class Form1
             Label_Resolution.Dock = DockStyle.Fill
             Label_Resolution.Name = "Label_Resolution" & i.ToString()
             Panel_Bottom.Controls.Add(Label_Resolution)
-
 
             ' Button - Button_Download
             Dim Button_Download = New MyButton
@@ -127,7 +123,7 @@ Public Class Form1
         SettingsLoadLock = False
     End Sub
 
-    ' GetWallpapersAsync - Updated to hide unused Panels
+    ' GetWallpapersAsync
     Private Async Sub GetWallpapersAsync(apiUrl As String)
         ' Create an HttpClient instance
         Using client As New HttpClient()
@@ -148,6 +144,7 @@ Public Class Form1
             For Each panel As Panel In panels
                 Dim pictureBox As MyPictureBox = panel.Controls.OfType(Of MyPictureBox).ElementAt(1)
                 If pictureBox IsNot Nothing Then
+                    pictureBox.SizeMode = PictureBoxSizeMode.CenterImage
                     pictureBox.Image = My.Resources.Loading
                 End If
             Next
@@ -174,14 +171,20 @@ Public Class Form1
                     ' Parse the JSON response
                     Dim wallpaperResponse As WallhavenApiResponse = JsonConvert.DeserializeObject(Of WallhavenApiResponse)(jsonResponse)
 
+                    'Console.WriteLine(jsonResponse)
+
                     ' Update pagination labels
                     Pages_current_page = wallpaperResponse.meta.current_page
                     Pages_last_page = wallpaperResponse.meta.last_page
-                    Pages_total = wallpaperResponse.meta.total
+                    RandomsSeed = CStr(wallpaperResponse.meta.seed)
 
                     Label_Pages.Text = Pages_current_page & "/" & Pages_last_page
                     NumericUpDown_Page.Value = Pages_current_page
                     NumericUpDown_Page.Maximum = Pages_last_page
+
+                    Label_Wallpappers.Text = "Wallpappers: " & wallpaperResponse.data.Count
+                    Label_TotalWallpappers.Text = "Total Wallpappers: " & wallpaperResponse.meta.total
+                    Label_TotalPages.Text = "Total Pages: " & Pages_last_page
 
 
                     ' Hide the Panels that are not used
@@ -224,11 +227,12 @@ Public Class Form1
                         Panel_Wallpaper.Controls(2).Controls(0).Text = wallpaper.resolution
 
                         ' Download the image from the path (wallpaper.thumbs.small)
-                        Dim imageBytes As Byte() = Await client.GetByteArrayAsync(wallpaper.thumbs.small)
+                        Dim imageBytes As Byte() = Await client.GetByteArrayAsync(wallpaper.thumbs.original)
 
                         ' Load the image into a MemoryStream and assign it to the PictureBox
                         Using ms As New MemoryStream(imageBytes)
                             If PictureBox_Wallpaper IsNot Nothing Then
+                                PictureBox_Wallpaper.SizeMode = PictureBoxSizeMode.Zoom
                                 PictureBox_Wallpaper.Image = Image.FromStream(ms)
                             End If
                         End Using
@@ -462,7 +466,7 @@ Public Class Form1
             apiUrl &= "categories=100&purity=100&"
         End If
 
-        ' Add resolutions if provided
+        ' Check if the resolution is custom or from the dropdown
         Dim resolution As String = ""
         If ComboBox_Ratio.SelectedIndex = 0 Then
             resolution = TextBox_CustomResolutionWidth.Text & "x" & TextBox_CustomResolutionHeight.Text
@@ -470,6 +474,7 @@ Public Class Form1
             resolution = ComboBox_Resolution.Items.Item(ComboBox_Resolution.SelectedIndex).ToString().Replace(" ", "")
         End If
 
+        ' Add resolution to the API URL
         If Not String.IsNullOrWhiteSpace(resolution) Then
             If Exactly_Resolution Then
                 apiUrl &= $"resolutions={resolution}&"
@@ -506,6 +511,13 @@ Public Class Form1
             apiUrl &= "ai_art_filter=1&"
         End If
 
+        ' add random seed if applicable
+        If ComboBox_Sorting.SelectedItem Is "Random" Then
+            If Not RandomsSeed = "" Then
+                apiUrl &= $"seed={RandomsSeed}&"
+            End If
+        End If
+
         ' Add page if provided
         If page.HasValue Then
             apiUrl &= $"page={page.Value}&"
@@ -516,7 +528,7 @@ Public Class Form1
             apiUrl = apiUrl.TrimEnd("&"c)
         End If
 
-        Console.WriteLine(apiUrl)
+        'Console.WriteLine(apiUrl)
         Return apiUrl
     End Function
 
@@ -1081,6 +1093,20 @@ Public Class Form1
     Private Sub ToolStripMenuItem_424153_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem_424153.Click
         Label_SelectedColor.Text = "#424153"
         Label_SelectedColor.ForeColor = ToolStripMenuItem_424153.BackColor
+    End Sub
+
+    ' ComboBox_Sorting - SelectedIndexChanged
+    Private Sub ComboBox_Sorting_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_Sorting.SelectedIndexChanged
+        If ComboBox_Sorting.SelectedItem Is "Random" Then
+            Panel_Pages.Hide()
+        Else
+            Panel_Pages.Show()
+        End If
+    End Sub
+
+    ' Form1 - ResizeEnd
+    Private Sub Form1_ResizeEnd(sender As Object, e As EventArgs) Handles Me.ResizeEnd
+        'Console.WriteLine(Me.Size)
     End Sub
 End Class
 

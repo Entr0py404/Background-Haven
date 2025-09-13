@@ -81,6 +81,7 @@ Partial Class Form1
         Me.TextBox_CustomResolutionHeight = New System.Windows.Forms.TextBox()
         Me.Label_Color = New System.Windows.Forms.Label()
         Me.Label_SelectedColor = New System.Windows.Forms.Label()
+        Me.Button_Search = New System.Windows.Forms.Button()
         Me.Panel_Pages = New System.Windows.Forms.Panel()
         Me.Label_Pages = New System.Windows.Forms.Label()
         Me.NumericUpDown_Page = New System.Windows.Forms.NumericUpDown()
@@ -91,13 +92,17 @@ Partial Class Form1
         Me.Timer_FadeIn = New System.Windows.Forms.Timer(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.Timer_FadeOut = New System.Windows.Forms.Timer(Me.components)
-        Me.Button_Search = New System.Windows.Forms.Button()
+        Me.Panel_Bottom = New System.Windows.Forms.Panel()
+        Me.Label_TotalPages = New System.Windows.Forms.Label()
+        Me.Label_TotalWallpappers = New System.Windows.Forms.Label()
+        Me.Label_Wallpappers = New System.Windows.Forms.Label()
         Me.ContextMenuStrip_Colors.SuspendLayout()
         Me.Panel_Top.SuspendLayout()
         Me.ContextMenuStrip_WallpaperStyles.SuspendLayout()
         Me.ContextMenuStrip_ODD.SuspendLayout()
         Me.Panel_Pages.SuspendLayout()
         CType(Me.NumericUpDown_Page, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel_Bottom.SuspendLayout()
         Me.SuspendLayout()
         '
         'FlowLayoutPanel1
@@ -108,7 +113,7 @@ Partial Class Form1
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 48)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(24, 0, 12, 0)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1312, 732)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1312, 635)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
         'ContextMenuStrip_Colors
@@ -353,7 +358,7 @@ Partial Class Form1
         Me.ComboBox_Sorting.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox_Sorting.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.ComboBox_Sorting.FormattingEnabled = True
-        Me.ComboBox_Sorting.Items.AddRange(New Object() {"Relevance", "Random", "Date Added", "Views", "Favorites", "Toplist", "Hot"})
+        Me.ComboBox_Sorting.Items.AddRange(New Object() {"Relevance", "Random", "Favorites", "Views", "Date Added", "Toplist", "Hot"})
         Me.ComboBox_Sorting.Location = New System.Drawing.Point(851, 11)
         Me.ComboBox_Sorting.Margin = New System.Windows.Forms.Padding(12, 3, 6, 3)
         Me.ComboBox_Sorting.Name = "ComboBox_Sorting"
@@ -393,6 +398,7 @@ Partial Class Form1
         Me.Panel_Top.Controls.Add(Me.ComboBox_Sorting)
         Me.Panel_Top.Controls.Add(Me.ComboBox_Resolution)
         Me.Panel_Top.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel_Top.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Panel_Top.Location = New System.Drawing.Point(0, 0)
         Me.Panel_Top.Name = "Panel_Top"
         Me.Panel_Top.Size = New System.Drawing.Size(1312, 48)
@@ -612,6 +618,20 @@ Partial Class Form1
         Me.Label_SelectedColor.TabIndex = 9
         Me.Label_SelectedColor.Text = "No Color"
         '
+        'Button_Search
+        '
+        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
+        Me.Button_Search.FlatAppearance.BorderSize = 0
+        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Search.Image = CType(resources.GetObject("Button_Search.Image"), System.Drawing.Image)
+        Me.Button_Search.Location = New System.Drawing.Point(999, 8)
+        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
+        Me.Button_Search.Name = "Button_Search"
+        Me.Button_Search.Size = New System.Drawing.Size(32, 32)
+        Me.Button_Search.TabIndex = 7
+        Me.Button_Search.UseVisualStyleBackColor = False
+        '
         'Panel_Pages
         '
         Me.Panel_Pages.Controls.Add(Me.Label_Pages)
@@ -710,31 +730,73 @@ Partial Class Form1
         '
         Me.Timer_FadeOut.Interval = 20
         '
-        'Button_Search
+        'Panel_Bottom
         '
-        Me.Button_Search.BackColor = System.Drawing.Color.MediumSeaGreen
-        Me.Button_Search.FlatAppearance.BorderSize = 0
-        Me.Button_Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button_Search.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Search.Image = CType(resources.GetObject("Button_Search.Image"), System.Drawing.Image)
-        Me.Button_Search.Location = New System.Drawing.Point(999, 8)
-        Me.Button_Search.Margin = New System.Windows.Forms.Padding(6, 3, 6, 3)
-        Me.Button_Search.Name = "Button_Search"
-        Me.Button_Search.Size = New System.Drawing.Size(32, 32)
-        Me.Button_Search.TabIndex = 7
-        Me.Button_Search.UseVisualStyleBackColor = False
+        Me.Panel_Bottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Panel_Bottom.Controls.Add(Me.Label_TotalPages)
+        Me.Panel_Bottom.Controls.Add(Me.Label_TotalWallpappers)
+        Me.Panel_Bottom.Controls.Add(Me.Label_Wallpappers)
+        Me.Panel_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel_Bottom.Location = New System.Drawing.Point(0, 683)
+        Me.Panel_Bottom.Name = "Panel_Bottom"
+        Me.Panel_Bottom.Size = New System.Drawing.Size(1312, 24)
+        Me.Panel_Bottom.TabIndex = 0
+        '
+        'Label_TotalPages
+        '
+        Me.Label_TotalPages.AutoSize = True
+        Me.Label_TotalPages.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label_TotalPages.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_TotalPages.Location = New System.Drawing.Point(1195, 0)
+        Me.Label_TotalPages.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label_TotalPages.Name = "Label_TotalPages"
+        Me.Label_TotalPages.Padding = New System.Windows.Forms.Padding(8, 4, 8, 4)
+        Me.Label_TotalPages.Size = New System.Drawing.Size(117, 24)
+        Me.Label_TotalPages.TabIndex = 14
+        Me.Label_TotalPages.Text = "Total Pages: ##"
+        Me.Label_TotalPages.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label_TotalWallpappers
+        '
+        Me.Label_TotalWallpappers.AutoSize = True
+        Me.Label_TotalWallpappers.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label_TotalWallpappers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_TotalWallpappers.Location = New System.Drawing.Point(114, 0)
+        Me.Label_TotalWallpappers.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label_TotalWallpappers.Name = "Label_TotalWallpappers"
+        Me.Label_TotalWallpappers.Padding = New System.Windows.Forms.Padding(8, 4, 8, 4)
+        Me.Label_TotalWallpappers.Size = New System.Drawing.Size(148, 24)
+        Me.Label_TotalWallpappers.TabIndex = 13
+        Me.Label_TotalWallpappers.Text = "Total Wallpappers: #"
+        Me.Label_TotalWallpappers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label_Wallpappers
+        '
+        Me.Label_Wallpappers.AutoSize = True
+        Me.Label_Wallpappers.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Label_Wallpappers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Wallpappers.Location = New System.Drawing.Point(0, 0)
+        Me.Label_Wallpappers.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label_Wallpappers.Name = "Label_Wallpappers"
+        Me.Label_Wallpappers.Padding = New System.Windows.Forms.Padding(8, 4, 8, 4)
+        Me.Label_Wallpappers.Size = New System.Drawing.Size(114, 24)
+        Me.Label_Wallpappers.TabIndex = 12
+        Me.Label_Wallpappers.Text = "Wallpappers: #"
+        Me.Label_Wallpappers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(49, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1312, 780)
+        Me.ClientSize = New System.Drawing.Size(1312, 707)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.Panel_Top)
+        Me.Controls.Add(Me.Panel_Bottom)
         Me.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
+        Me.MinimumSize = New System.Drawing.Size(1328, 328)
         Me.Name = "Form1"
         Me.Opacity = 0.95R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -746,6 +808,8 @@ Partial Class Form1
         Me.ContextMenuStrip_ODD.ResumeLayout(False)
         Me.Panel_Pages.ResumeLayout(False)
         CType(Me.NumericUpDown_Page, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel_Bottom.ResumeLayout(False)
+        Me.Panel_Bottom.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -818,4 +882,8 @@ Partial Class Form1
     Friend WithEvents ToolStripMenuItem_StyleFill As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_SetDownloadDirectory As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem_Span As ToolStripMenuItem
+    Friend WithEvents Panel_Bottom As Panel
+    Friend WithEvents Label_TotalWallpappers As Label
+    Friend WithEvents Label_Wallpappers As Label
+    Friend WithEvents Label_TotalPages As Label
 End Class
